@@ -519,7 +519,53 @@ def generate_dashboard():
     print(f"  => index.html 생성 완료 ({len(html)} bytes)")
 
 
+# ─── 카카오톡 알림 ───
+KAKAO_NOTIFY_URL = os.environ.get(
+    "KAKAO_NOTIFY_URL",
+    "https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/kakao-notify?action=send",
+)
+
+
+def send_kakao_notification(result: dict):
+    """크롤링 결과를 카카오톡으로 전송"""
+    now_kst = datetime.now(timezone.utc).strftime("%m/%d %H:%M")
+    msg_lines = [
+        f"📊 대치동 모니터링 리포트",
+        f"⏰ {now_kst} UTC",
+        f"",
+        f"📄 스캔: {result['pages']}페이지",
+        f"🔄 변경: {result['changes']}건",
+        f"🔑 키워드: {result['keywords']}회 매칭",
+    ]
+    if result["errors"] > 0:
+        msg_lines.append(f"⚠️ 오류: {result['errors']}건")
+    if result["changes"] > 0:
+        msg_lines.append(f"\n✅ 변경 감지됨! 대시보드를 확인하세요.")
+    else:
+        msg_lines.append(f"\n✅ 모든 소스 정상 (변경 없음)")
+
+    message = "\n".join(msg_lines)
+    try:
+        resp = requests.post(
+            KAKAO_NOTIFY_URL,
+            json={"message": message},
+            headers={"Content-Type": "application/json"},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("success"):
+                print("  => 카카오톡 알림 전송 성공!")
+            else:
+                print(f"  => 카카오톡 알림 실패: {data}")
+        else:
+            print(f"  => 카카오톡 알림 HTTP {resp.status_code}: {resp.text[:200]}")
+    except Exception as e:
+        print(f"  => 카카오톡 알림 오류: {e}")
+
+
 if __name__ == "__main__":
     result = run_crawl()
     generate_dashboard()
+    send_kakao_notification(result)
     print(f"\n최종 결과: {json.dumps(result)}")
