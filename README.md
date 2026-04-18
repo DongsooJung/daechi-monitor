@@ -1,74 +1,117 @@
 # 🏫 대치동 학원가 모니터링 대시보드
 
-> **Firecrawl × Supabase 기반 자동 크롤링 · 변경 감지 · 키워드 트래킹 시스템**
->
-> 서울 강남구 대치동 학원가의 학원 홈페이지·모집 공고·수강료 변동을 실시간 추적하여, KOI(수학·정보올림피아드) 전문 교육 시장의 동향을 데이터로 포착합니다.
+> **대치동 학원가 변화를 실시간으로 감지·추적하는 자동 스캔 시스템**
+> Real-time monitoring dashboard for Daechi-dong private academy market
 
-[![Stack](https://img.shields.io/badge/Stack-Firecrawl%20%2B%20Supabase-3ECF8E?style=flat-square)](https://firecrawl.dev)
-[![Visualization](https://img.shields.io/badge/Chart-Chart.js%204.4-FF6384?style=flat-square&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
-[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-181717?style=flat-square&logo=github&logoColor=white)](https://dongsoojung.github.io/daechi-monitor/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Live Dashboard](https://img.shields.io/badge/Live-Dashboard-10b981?style=flat-square)](https://dongsoojung.github.io/daechi-monitor/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.4.1-FF6384?style=flat-square&logo=chart.js&logoColor=white)](https://www.chartjs.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
 ---
 
 ## 🎯 Problem
 
-대치동 학원가는 KOI·수학올림피아드·내신 시장에서 **매주 수강료·개강일·프로그램이 갱신**됩니다. 개별 모니터링은 비효율적이고, 경쟁 학원의 변화를 놓치면 **포지셔닝·가격 경쟁력 저하**로 직결됩니다.
+대치동 학원가는 한국 사교육 시장의 **최전선 선행지표(leading indicator)** 입니다. 학원 개·폐업, 커리큘럼 변경, 모집 공고, 수업료 조정이 분 단위로 일어나지만, 강사·운영자·학부모 누구도 **체계적으로 추적하지 못합니다**.
 
-## ✨ Solution
+수동 서핑으로는:
+- 100+ 학원 사이트를 모두 보는 것이 현실적으로 불가능
+- 변경 시점을 놓치면 기회도 경쟁 리스크도 사후에 파악
+- 키워드 트렌드(KOI/의대/영재원 등)의 **실시간 빈도 데이터**가 부재
 
-이 대시보드는 **헤드리스 크롤링 + 변경 감지 + 키워드 집계** 3단 파이프라인으로 학원가를 자동 감시합니다.
+## 💡 Solution
+
+웹 스크래핑 + diff 감지 + 시각화 대시보드를 **GitHub Pages 정적 호스팅 + Actions 자동 실행**으로 결합한 무한 무료 모니터링 시스템.
 
 ```
-Firecrawl API → 대치동 주요 학원 URL 스캔
-    ↓
-Supabase (diff 저장) → 이전 스냅샷과 비교하여 변경 라인만 추출
-    ↓
-Chart.js 대시보드 → 시계열 스캔 이력 · TOP 키워드 · 소스별 상태
+  Target URLs          GitHub Actions (cron)      JSON store          GitHub Pages
+ ┌────────────┐        ┌──────────────────┐      ┌──────────┐        ┌──────────────┐
+ │ 학원사이트  │ ───▶  │  Python scanner  │ ───▶ │ runs.json│ ───▶  │ Chart.js UI  │
+ │ 커뮤니티    │        │  (requests/diff) │      │ keywords │        │ (static SPA) │
+ └────────────┘        └──────────────────┘      └──────────┘        └──────────────┘
 ```
 
-## 📊 대시보드 구성
+## 📊 Dashboard Features
 
-| 패널 | 내용 |
-|------|------|
-| **📈 스캔 이력** | 일자별 크롤링 시도·성공·변경 감지 건수 시계열 |
-| **🔑 TOP 키워드** | 추출 본문에서 빈도 급증 키워드 (신규/증가율 기준) |
-| **📋 최근 변경사항** | URL별 diff 라인 — `NEW` / `MODIFIED` 배지 구분 |
-| **📡 소스별 현황** | 각 학원 사이트의 최근 응답 상태·오류율 |
-
-상단 4개 통계 카드: `총 스캔 페이지` · `변경 감지` · `키워드 매칭` · `오류`
+| 패널 | 내용 | 시각화 |
+|------|------|--------|
+| **Summary Cards** | 총 스캔 페이지 / 변경 감지 건수 / 키워드 매칭 / 오류 | Stat cards |
+| **📈 스캔 이력** | 최근 15회 스캔의 변경·키워드 추이 | Chart.js Bar (dual) |
+| **🔑 TOP 키워드** | 기간별 빈도 상위 키워드 (KOI, 의대, 영재원 등) | Ranked list |
+| **📋 최근 변경사항** | 학원별 diff 로그 (URL + 타임스탬프) | Timeline |
+| **📡 소스별 현황** | 도메인별 모니터링 건수·최신성 | Status table |
 
 ## 🛠 Tech Stack
 
-- **크롤링**: [Firecrawl](https://firecrawl.dev) — JS 렌더링 포함, 대규모 학원 사이트 대응
-- **저장소**: [Supabase](https://supabase.com) — 변경 diff 시계열 + Row Level Security
-- **프론트**: Vanilla HTML + Chart.js 4.4 (UMD CDN) — GitHub Pages 정적 호스팅
-- **트리거**: GitHub Actions cron (주 1회 자동 갱신)
-- **디자인**: 다크 모드 (slate-900 베이스), blue-400 / purple-400 그라디언트 포인트
+- **Scraper**: Python 3.11+, `requests` (경량 HTTP), 변경분 해시 비교
+- **Scheduler**: GitHub Actions cron (기본 6시간 간격)
+- **Storage**: JSON 파일 저장 — 외부 DB·서버 없음
+- **Frontend**: 단일 HTML 파일, Chart.js 4.4.1 (CDN), Tailwind-style 커스텀 CSS
+- **Hosting**: GitHub Pages (무료, HTTPS 자동)
 
-## 🚀 Live Demo
+## 📂 Data Model
 
-**▶ https://dongsoojung.github.io/daechi-monitor/**
-
-## 📂 프로젝트 구조
-
+```jsonc
+// runs.json (예시)
+{
+  "runs": [
+    {
+      "created_at": "2026-04-18T02:00:00Z",
+      "scans": 127,
+      "changes": 4,
+      "keywords": 18,
+      "errors": 0
+    }
+  ],
+  "changes": [
+    { "url": "...", "title": "학원 A — 2026 여름특강 개설", "detected_at": "..." }
+  ],
+  "keywords": [
+    { "term": "KOI 대비", "count": 7 },
+    { "term": "의대 논술", "count": 5 }
+  ]
+}
 ```
-daechi-monitor/
-├── index.html          # 대시보드 단일 페이지 (Chart.js 통합)
-├── requirements.txt    # Firecrawl·Supabase 파이썬 클라이언트
-└── README.md
+
+## 🚀 Quick Start
+
+```bash
+# 1. 리포지토리 클론
+git clone https://github.com/DongsooJung/daechi-monitor.git
+cd daechi-monitor
+
+# 2. 의존성 설치 (스캐너 실행용)
+pip install -r requirements.txt
+
+# 3. 스캐너 실행 (로컬 테스트)
+python scanner.py
+
+# 4. 대시보드 로컬 프리뷰
+python -m http.server 8000
+# → http://localhost:8000
 ```
 
-## 🎓 활용 맥락
+## 📅 Roadmap
 
-본 대시보드는 **[Stargate Corporation](https://stargate11.com)**의 교육 사업(대치동 KOI 전문 강의) 의사결정을 지원합니다. 경쟁 학원 가격·개강일·프로그램 변동을 정량적으로 포착하여, 수강료 포지셔닝 및 커리큘럼 차별화 전략을 데이터 기반으로 수립합니다.
+- [x] 기본 대시보드 (4-panel 레이아웃 + Chart.js)
+- [x] GitHub Pages 배포
+- [ ] 타겟 URL 동적 설정 (`targets.yaml`)
+- [ ] Telegram/Slack 알림 (변경·키워드 임계치 기반)
+- [ ] 주간 자동 리포트 생성 (요약 + 주요 변경사항)
+- [ ] 다른 학원가 확장 (목동, 중계동, 반포)
+
+## 🎓 Author
+
+**정동수 (Dongsoo Jung)** — Stargate Corporation CEO
+- 대치동 KOI(수학정보올림피아드) 전문 강사
+- SNU 스마트도시공학 박사 수료 · 공간계량/헤도닉 연구자
+- [GitHub](https://github.com/DongsooJung) · [Website](https://stargate11.com)
 
 ## 📄 License
 
-MIT © 2026 Dongsoo Jung / Stargate Corporation
+MIT License — 자유롭게 사용·수정 가능합니다.
 
 ---
 
-<p align="center">
-  <sub>Built for <a href="https://stargate11.com">Stargate Corp</a> · 대치동 KOI 전문 교육 · AI-powered market intelligence</sub>
-</p>
+> *"Show me the data, I'll show you the market."*
+> 대치동이라는 한 동네의 움직임만 잘 추적해도, 대한민국 사교육 시장의 방향이 보입니다.
