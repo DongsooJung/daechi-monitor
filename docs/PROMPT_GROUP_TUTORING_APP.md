@@ -26,8 +26,8 @@ Generate a production-ready React Native (Expo) app scaffold for a location-base
   <!-- 흑백 테마에 어울리는 단색 아이콘 -->
 - Forms: react-hook-form + zod
   <!-- 폼 데이터 상태 및 유효성 검사를 체계적으로 처리 -->
-- Maps: react-native-kakao-maps-sdk with marker clustering
-  <!-- 한국 시장에 최적화된 카카오맵 SDK + 다중 마커 시 클러스터 -->
+- Maps: react-native-maps (Google Maps provider) with marker clustering (e.g., react-native-map-clustering)
+  <!-- iOS/Android 공용 Google Maps SDK 래퍼. PROVIDER_GOOGLE 지정 + 다중 마커 시 클러스터 -->
 - Firebase: Auth, Firestore, Cloud Functions, Cloud Messaging (FCM), Storage
   <!-- 인증 / 데이터 / 서버리스 로직 / 푸시 알림 / 이미지 저장 등 백엔드 풀스택 구성 -->
 - Geo: geofire-common (geohash + distance queries)
@@ -52,8 +52,8 @@ Core features (MVP):
      <!-- 최초 가입 시 역할 및 기본 정보 수집 -->
 
 2) **Home / Map**
-   - Kakao map centered in Gangnam (default Daechi-dong)
-     <!-- 기본 지도를 대치동 중심 좌표 기준으로 표기 -->
+   - Google map centered in Gangnam (default Daechi-dong)
+     <!-- 기본 지도(Google Maps, PROVIDER_GOOGLE)를 대치동 중심 좌표 기준으로 표기 -->
    - Display nearby "group classes" within radius (default 2km)
      <!-- 주변 반경 내 수업 목록을 마커로 표기 -->
    - Marker cluster; tapping marker → preview card → detail screen
@@ -120,7 +120,7 @@ Core features (MVP):
 
 ### Screens
 - HomeMap.tsx
-  <!-- 카카오맵/현재 위치 버튼/마커 클러스터/프리뷰 바텀시트 포함 -->
+  <!-- Google Maps(PROVIDER_GOOGLE)/현재 위치 버튼/마커 클러스터/프리뷰 바텀시트 포함 -->
 - NearbyList.tsx
   <!-- 거리순 카드 리스트. 무한 스크롤 + 당근마켓 유사 압축 카드 -->
 
@@ -215,7 +215,7 @@ Core features (MVP):
 - schedule: { days: string[], timeRange: { start: 'HH:mm', end: 'HH:mm' } }
   <!-- 요일 + 시간대 범위 -->
 - location: { lat:number, lng:number, address?:string }
-  <!-- 지도에서 핀 지정. Kakao map long-tap 이벤트 활용 -->
+  <!-- 지도에서 핀 지정. Google Maps onLongPress 이벤트 활용 -->
 - geohash: string
   <!-- geofire-common으로 생성하여 Firestore 저장 -->
 - maxParticipants: number
@@ -473,7 +473,7 @@ function queryClassesNear({lat, lng, radiusMeters, filters}) {
 3. **각 화면 컴포넌트 & hooks & services**
 4. **`firestore.rules` 전체**
 5. **Cloud Functions 코드 (`functions/index.ts`)**
-6. **README에 Setup 가이드 포함 (Firebase console 설정 / Kakao App Key 등)**
+6. **README에 Setup 가이드 포함 (Firebase console 설정 / Google Maps API Key (iOS/Android) / Kakao App Key 등)**
 
 ---
 
@@ -494,7 +494,7 @@ Now, based on the full specification above, **generate the entire Expo project c
 **Files to generate (minimum):**
 1) **Project & Config**
    - `/app.json`, `/package.json`, `/tsconfig.json`, `/.gitignore`, `/.eslintrc.cjs`, `/.prettierrc`
-   - `/.env.example` with all required keys (Firebase + Kakao + FCM notes)
+   - `/.env.example` with all required keys (Firebase + Google Maps API Key (iOS/Android) + Kakao + FCM notes)
    - `/README.md` quick setup (copy essentials from this spec)
 2) **Firebase**
    - `/app/services/firebase.ts` (modular SDK init; read from env)
