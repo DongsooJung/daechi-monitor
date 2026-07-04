@@ -45,8 +45,8 @@ Core features (MVP):
 
 1) **Onboarding & Auth**
    - Email/Password sign-in <!-- 이메일 로그인 (테스트용 및 대안 로그인 수단) -->
-   - Kakao Login → Firebase custom token (Cloud Function) flow
-     <!-- 카카오 토큰을 Functions에서 검증 후 Firebase 커스텀토큰으로 인증 처리 -->
+   - Google Sign-In → Firebase Auth (`GoogleAuthProvider` credential) flow
+     <!-- Google Sign-In SDK로 ID 토큰 획득 후 Firebase Auth 크리덴셜로 직접 로그인 (커스텀 토큰 불필요) -->
    - Profile creation:
      role, name, school/major (for tutors), grade range (for students), phone (optional, masked)
      <!-- 최초 가입 시 역할 및 기본 정보 수집 -->
@@ -80,17 +80,17 @@ Core features (MVP):
   <!-- 앱 소개/권한(알림/위치) 안내. 최초 1회 표시 후 로컬 플래그 저장 -->
 - Auth/SignIn.tsx, Auth/SignUp.tsx
   <!-- 이메일 로그인/회원가입. react-hook-form + zod로 필드 검증 -->
-- Auth/KakaoLoginButton.tsx
-  <!-- 카카오 SDK 연동 버튼 컴포넌트. 액세스 토큰 취득 및 Functions 호출 래핑 -->
+- Auth/GoogleSignInButton.tsx
+  <!-- Google Sign-In SDK 연동 버튼 컴포넌트. ID 토큰 취득 후 Firebase Auth 크리덴셜 로그인 래핑 -->
 
 ### Client Flow
-1. User taps KakaoLoginButton → get Kakao access token
-   <!-- 카카오 SDK 통해 액세스 토큰 획득 -->
-2. Call Firebase Callable Function `createFirebaseToken(kakaoAccessToken)`
-   <!-- 클라우드 함수에 토큰 전달하여 서버 측 검증/매핑 처리 -->
-3. Receive customToken → `signInWithCustomToken`
-   <!-- 커스텀 토큰으로 파이어베이스 인증 완료 -->
-4. If first login → route to Profile setup
+1. User taps GoogleSignInButton → `@react-native-google-signin/google-signin`으로 ID 토큰 획득
+   <!-- iOS/Android 공용 Google Sign-In SDK. GoogleSignin.signIn() → idToken -->
+2. Build Firebase credential: `GoogleAuthProvider.credential(idToken)`
+   <!-- Firebase SDK 자체 지원 — 별도 Cloud Function 없이 클라이언트에서 크리덴셜 생성 -->
+3. `signInWithCredential(auth, credential)` → Firebase 사용자 세션 확립
+   <!-- 최초 로그인 시 Firebase가 users/{uid}를 관리 (Firestore users 문서는 별도 생성) -->
+4. If first login (Firestore `users/{uid}` 부재) → route to Profile setup
    <!-- 신규 유저는 프로필 작성 화면으로 이동 -->
 
 ### Profile Setup
@@ -427,7 +427,6 @@ match /chats/{chatId} {
 
 | Trigger | Action |
 |---------|--------|
-| `createFirebaseToken(kakaoAccessToken)` | Kakao API로 토큰 검증 → Firebase 커스텀 토큰 발급 |
 | onCreate(enrollRequests) | 튜터에게 FCM 알림 전송 |
 | onUpdate(enrollRequests.status:'approved') | 학생에게 알림 전송 + 채팅방 생성 또는 연결 |
 | onCreate(messages) | 채팅방의 다른 멤버에게 메시지 알림 |
@@ -473,7 +472,7 @@ function queryClassesNear({lat, lng, radiusMeters, filters}) {
 3. **각 화면 컴포넌트 & hooks & services**
 4. **`firestore.rules` 전체**
 5. **Cloud Functions 코드 (`functions/index.ts`)**
-6. **README에 Setup 가이드 포함 (Firebase console 설정 / Google Maps API Key (iOS/Android) / Kakao App Key 등)**
+6. **README에 Setup 가이드 포함 (Firebase console 설정 / Google Maps API Key (iOS/Android) / Google Sign-In OAuth Client ID (iOS/Android/Web) 등)**
 
 ---
 
@@ -494,7 +493,7 @@ Now, based on the full specification above, **generate the entire Expo project c
 **Files to generate (minimum):**
 1) **Project & Config**
    - `/app.json`, `/package.json`, `/tsconfig.json`, `/.gitignore`, `/.eslintrc.cjs`, `/.prettierrc`
-   - `/.env.example` with all required keys (Firebase + Google Maps API Key (iOS/Android) + Kakao + FCM notes)
+   - `/.env.example` with all required keys (Firebase + Google Maps API Key (iOS/Android) + Google Sign-In OAuth Client ID (iOS/Android/Web) + FCM notes)
    - `/README.md` quick setup (copy essentials from this spec)
 2) **Firebase**
    - `/app/services/firebase.ts` (modular SDK init; read from env)
@@ -503,7 +502,7 @@ Now, based on the full specification above, **generate the entire Expo project c
    - `/app/navigation/RootNavigator.tsx`, `/app/navigation/BottomTabs.tsx`
 4) **Screens**
    - `/app/screens/Onboarding.tsx`
-   - `/app/screens/Auth/SignIn.tsx`, `/app/screens/Auth/SignUp.tsx`, `/app/screens/Auth/KakaoLoginButton.tsx`
+   - `/app/screens/Auth/SignIn.tsx`, `/app/screens/Auth/SignUp.tsx`, `/app/screens/Auth/GoogleSignInButton.tsx`
    - `/app/screens/HomeMap.tsx`, `/app/screens/NearbyList.tsx`, `/app/screens/Filters.tsx`
    - `/app/screens/ClassCreate.tsx`, `/app/screens/ClassEdit.tsx`, `/app/screens/ClassDetail.tsx`
    - `/app/screens/Requests.tsx`
@@ -519,7 +518,7 @@ Now, based on the full specification above, **generate the entire Expo project c
      - Zustand: `/app/store/index.ts`
      - **or** React Query: `/app/services/queryClient.ts`
 8) **Services & Utils**
-   - `/app/services/auth.ts` (email, Kakao→custom token client flow)
+   - `/app/services/auth.ts` (email + Google Sign-In → `signInWithCredential` client flow)
    - `/app/services/firestore.ts` (typed refs & converters)
    - `/app/services/geo.ts` (geofire-common helpers)
    - `/app/services/chat.ts` (send/subscribe abstraction)
@@ -530,7 +529,6 @@ Now, based on the full specification above, **generate the entire Expo project c
 10) **Cloud Functions**
     - `/functions/package.json`, `/functions/tsconfig.json`
     - `/functions/src/index.ts` with:
-      - `createFirebaseToken(kakaoAccessToken)`
       - `onEnrollRequestCreate` (notify tutor)
       - `onEnrollApproved` (notify student & ensure chat)
       - `onMessageCreate` (notify chat members)
@@ -539,11 +537,11 @@ Now, based on the full specification above, **generate the entire Expo project c
     - `/app/__tests__/geo.test.ts` (distance calc & filters)
     - `/scripts/mockSeed.ts` (20 sample classes around Daechi-dong)
 
-**Kakao Login ↔ Firebase Custom Token (must implement end-to-end):**
-- In app: obtain Kakao access token via SDK in `KakaoLoginButton.tsx`
-- Call Callable Function `createFirebaseToken(kakaoAccessToken)`
-- Server verifies token with Kakao API, maps/creates Firebase user, returns `customToken`
-- Client signs in with `signInWithCustomToken(customToken)`
+**Google Sign-In ↔ Firebase Auth (must implement end-to-end):**
+- In app: obtain Google ID token via `@react-native-google-signin/google-signin` in `GoogleSignInButton.tsx`
+- Build credential: `GoogleAuthProvider.credential(idToken)`
+- Client signs in with `signInWithCredential(auth, credential)` — no Cloud Function required
+- On first successful sign-in, create Firestore `users/{uid}` document if absent, then route to Profile setup
 
 **Geo Query (must be ready-to-run):**
 - Use `geofire-common` to generate/store `geohash` on class creation
