@@ -7,138 +7,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', -apple-system, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            min-height: 100vh;
-        }
-        .header {
-            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
-            padding: 24px 32px;
-            border-bottom: 1px solid #334155;
-        }
-        .header h1 {
-            font-size: 24px;
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+        .header { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); padding: 24px 32px; border-bottom: 1px solid #334155; }
+        .header h1 { font-size: 24px; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .header .subtitle { color: #94a3b8; margin-top: 4px; font-size: 14px; }
         .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .stat-card {
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #334155;
-        }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; }
         .stat-card .label { color: #94a3b8; font-size: 13px; }
-        .stat-card .value {
-            font-size: 32px;
-            font-weight: 700;
-            margin-top: 8px;
-        }
+        .stat-card .value { font-size: 32px; font-weight: 700; margin-top: 8px; }
         .stat-card .value.blue { color: #60a5fa; }
         .stat-card .value.green { color: #4ade80; }
         .stat-card .value.yellow { color: #fbbf24; }
         .stat-card .value.red { color: #f87171; }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-        .panel {
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 24px;
-            border: 1px solid #334155;
-        }
-        .panel h2 {
-            font-size: 16px;
-            margin-bottom: 16px;
-            color: #f1f5f9;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .panel { background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid #334155; }
+        .panel h2 { font-size: 16px; margin-bottom: 16px; color: #f1f5f9; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
         th { text-align: left; color: #94a3b8; padding: 8px; border-bottom: 1px solid #334155; }
         td { padding: 8px; border-bottom: 1px solid #1e293b; }
         tr:hover { background: #334155; }
-        .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-        }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
         .badge-new { background: #065f46; color: #6ee7b7; }
         .badge-modified { background: #713f12; color: #fde047; }
-        .kw-bar {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-        .kw-bar .bar {
-            height: 20px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 4px;
-            min-width: 4px;
-        }
+        .kw-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .kw-bar .bar { height: 20px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); border-radius: 4px; min-width: 4px; }
         .kw-bar .name { min-width: 120px; font-size: 13px; }
         .kw-bar .count { font-size: 12px; color: #94a3b8; }
         .chart-container { position: relative; height: 250px; }
-        @media (max-width: 768px) {
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .grid-2 { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🏫 대치동 학원가 모니터링 대시보드</h1>
-        <div class="subtitle">
-            Firecrawl + Supabase 자동 크롤링 · 변경 감지 · 키워드 트래킹 |
-            갱신: 2026-06-07T11:12:26
-        </div>
+        <div class="subtitle">Firecrawl + Supabase 자동 크롤링 · 변경 감지 · 키워드 트래킹 | 갱신: 2026-07-06T02:39:31</div>
     </div>
     <div class="container">
         <div class="stats-grid" id="statsGrid"></div>
         <div class="grid-2">
-            <div class="panel">
-                <h2>📈 스캔 이력</h2>
-                <div class="chart-container">
-                    <canvas id="runChart"></canvas>
-                </div>
-            </div>
-            <div class="panel">
-                <h2>🔑 TOP 키워드</h2>
-                <div id="topKeywords"></div>
-            </div>
+            <div class="panel"><h2>📈 스캔 이력</h2><div class="chart-container"><canvas id="runChart"></canvas></div></div>
+            <div class="panel"><h2>🔑 TOP 키워드</h2><div id="topKeywords"></div></div>
         </div>
         <div class="grid-2">
-            <div class="panel">
-                <h2>📋 최근 변경사항</h2>
-                <table>
-                    <thead><tr><th>소스</th><th>유형</th><th>요약</th><th>시각</th></tr></thead>
-                    <tbody id="changesTable"></tbody>
-                </table>
+            <div class="panel"><h2>📋 최근 변경사항</h2>
+                <table><thead><tr><th>소스</th><th>유형</th><th>요약</th><th>시각</th></tr></thead><tbody id="changesTable"></tbody></table>
             </div>
-            <div class="panel">
-                <h2>📡 소스별 현황</h2>
-                <table>
-                    <thead><tr><th>소스</th><th>변경</th><th>최근</th></tr></thead>
-                    <tbody id="sourceTable"></tbody>
-                </table>
+            <div class="panel"><h2>📡 소스별 현황</h2>
+                <table><thead><tr><th>소스</th><th>변경</th><th>최근</th></tr></thead><tbody id="sourceTable"></tbody></table>
             </div>
         </div>
     </div>
