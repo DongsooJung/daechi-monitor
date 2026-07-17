@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>출판 상위 100개 — 매출·발행 종수 시각화</title>
+    <title>출판 상위 300개 — 매출·발행 종수 시각화</title>
     <script src="vendor/chart.umd.min.js"></script>
     <style>
         :root {
@@ -69,8 +69,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>📚 출판 상위 100개 — 매출 · 발행 종수</h1>
-        <div class="subtitle">국내 주요 출판·교육 기업 상위 100개사 매출(억원)과 누적 발행 종수(권) 시각화</div>
+        <h1>📚 출판 상위 300개 — 매출 · 발행 종수</h1>
+        <div class="subtitle">국내 주요 출판·교육 기업 상위 300개사 매출(억원)과 누적 발행 종수(권) 시각화</div>
         <div class="nav">← <a href="index.html">대치동 학원가 모니터링 대시보드</a></div>
     </div>
 
@@ -95,14 +95,14 @@
             </div>
             <div class="panel">
                 <h2>🗂 카테고리별 매출 합계</h2>
-                <div class="hint">100개사를 분야별로 묶은 총매출(억원).</div>
+                <div class="hint">전체 출판사를 분야별로 묶은 총매출(억원).</div>
                 <div class="chart-container short"><canvas id="catBar"></canvas></div>
                 <div class="legend" id="catLegend"></div>
             </div>
         </div>
 
         <div class="panel">
-            <h2>📋 전체 순위표 (100개사)</h2>
+            <h2>📋 전체 순위표 (<span id="tableTitleCount">…</span>개사)</h2>
             <div class="hint">헤더를 클릭하면 정렬됩니다. 이름·분야로 검색할 수 있습니다.</div>
             <div class="table-tools">
                 <input type="text" id="search" placeholder="🔎 출판사·분야 검색…">
@@ -155,6 +155,7 @@
             const totalRev = pubs.reduce((s, p) => s + p.revenue, 0);
             const totalTitles = pubs.reduce((s, p) => s + p.titles, 0);
             const avgPerTitle = totalRev * 100 / totalTitles;
+            document.getElementById('tableTitleCount').textContent = nf.format(pubs.length);
 
             // ── 요약 카드 ──
             document.getElementById('statsGrid').innerHTML = `

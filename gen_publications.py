@@ -42,29 +42,40 @@ KNOWN = [
 ]
 
 # ─── 하위권 롱테일: 합성 출판사명 (형용사 + 명사 + 접미사 조합) ───
+# 접두 어휘 × 접미 어휘의 곱으로 충분한 고유 조합을 확보한다(현재 45×8=360).
 _ADJ = ["한빛", "새움", "푸른", "밝은", "열림", "다온", "온새미", "가온",
         "이든", "라온", "해솔", "미리내", "너울", "예솔", "보름", "다솜",
-        "슬기", "누리", "든해", "아라"]
+        "슬기", "누리", "든해", "아라", "청람", "도담", "여울", "소담",
+        "한결", "빛솔", "나래", "초록", "물결", "바람", "구름", "은하",
+        "새벽", "노을", "단비", "샘터", "옹달", "너른", "포근", "고운",
+        "맑음", "차오름", "이룸", "펴는", "지음"]
 _SUF = ["출판", "미디어", "북스", "에듀", "프레스", "문화사", "컬처", "랩"]
 _CATS = ["교육", "어학", "단행본", "아동", "IT/실용", "학습"]
 
 
-def _synth_names(n, start_idx):
+def _synth_names(n, start_idx, exclude=()):
+    exclude = set(exclude)
     out = []
+    seen = set()
     i = start_idx
-    while len(out) < n:
+    limit = len(_ADJ) * len(_SUF)
+    while len(out) < n and i < start_idx + limit:
         adj = _ADJ[i % len(_ADJ)]
         suf = _SUF[(i // len(_ADJ)) % len(_SUF)]
         name = f"{adj}{suf}"
-        if name not in out:
+        if name not in seen and name not in exclude:
             out.append(name)
+            seen.add(name)
         i += 1
+    if len(out) < n:
+        raise ValueError(f"합성 이름 부족: {len(out)}/{n} — _ADJ/_SUF 풀을 늘리세요.")
     return out
 
 
 def build(total=100):
     names = list(KNOWN)
-    synth = _synth_names(total - len(KNOWN), 0)
+    known_names = {nm for nm, _ in KNOWN}
+    synth = _synth_names(total - len(KNOWN), 0, exclude=known_names)
     for j, nm in enumerate(synth):
         names.append((nm, _CATS[j % len(_CATS)]))
     names = names[:total]
@@ -95,7 +106,7 @@ def build(total=100):
 
 
 def main():
-    pubs = build(100)
+    pubs = build(300)
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "is_sample": True,
@@ -111,7 +122,7 @@ def main():
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"✅ publications.json 생성 완료 — {len(pubs)}개 출판사")
     print(f"   1위 {pubs[0]['name']} 매출 {pubs[0]['revenue']}억 / {pubs[0]['titles']}권")
-    print(f"   100위 {pubs[-1]['name']} 매출 {pubs[-1]['revenue']}억 / {pubs[-1]['titles']}권")
+    print(f"   {len(pubs)}위 {pubs[-1]['name']} 매출 {pubs[-1]['revenue']}억 / {pubs[-1]['titles']}권")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T12:55:16.067213+00:00",
+  "generated_at": "2026-07-17T01:57:33.981446+00:00",
   "is_sample": true,
   "unit": {
     "revenue": "억원",
@@ -490,7 +490,7 @@
     },
     {
       "rank": 61,
-      "name": "한빛미디어",
+      "name": "청람출판",
       "category": "단행본",
       "revenue": 352.4,
       "titles": 810,
@@ -498,7 +498,7 @@
     },
     {
       "rank": 62,
-      "name": "새움미디어",
+      "name": "도담출판",
       "category": "아동",
       "revenue": 348.3,
       "titles": 830,
@@ -506,7 +506,7 @@
     },
     {
       "rank": 63,
-      "name": "푸른미디어",
+      "name": "여울출판",
       "category": "IT/실용",
       "revenue": 344.3,
       "titles": 680,
@@ -514,7 +514,7 @@
     },
     {
       "rank": 64,
-      "name": "밝은미디어",
+      "name": "소담출판",
       "category": "학습",
       "revenue": 340.5,
       "titles": 1030,
@@ -522,7 +522,7 @@
     },
     {
       "rank": 65,
-      "name": "열림미디어",
+      "name": "한결출판",
       "category": "교육",
       "revenue": 336.7,
       "titles": 830,
@@ -530,7 +530,7 @@
     },
     {
       "rank": 66,
-      "name": "다온미디어",
+      "name": "빛솔출판",
       "category": "어학",
       "revenue": 333.0,
       "titles": 640,
@@ -538,7 +538,7 @@
     },
     {
       "rank": 67,
-      "name": "온새미미디어",
+      "name": "나래출판",
       "category": "단행본",
       "revenue": 329.4,
       "titles": 890,
@@ -546,7 +546,7 @@
     },
     {
       "rank": 68,
-      "name": "가온미디어",
+      "name": "초록출판",
       "category": "아동",
       "revenue": 325.9,
       "titles": 1080,
@@ -554,7 +554,7 @@
     },
     {
       "rank": 69,
-      "name": "이든미디어",
+      "name": "물결출판",
       "category": "IT/실용",
       "revenue": 322.5,
       "titles": 520,
@@ -562,7 +562,7 @@
     },
     {
       "rank": 70,
-      "name": "라온미디어",
+      "name": "바람출판",
       "category": "학습",
       "revenue": 319.2,
       "titles": 790,
@@ -570,7 +570,7 @@
     },
     {
       "rank": 71,
-      "name": "해솔미디어",
+      "name": "구름출판",
       "category": "교육",
       "revenue": 315.9,
       "titles": 1030,
@@ -578,7 +578,7 @@
     },
     {
       "rank": 72,
-      "name": "미리내미디어",
+      "name": "은하출판",
       "category": "어학",
       "revenue": 312.8,
       "titles": 740,
@@ -586,7 +586,7 @@
     },
     {
       "rank": 73,
-      "name": "너울미디어",
+      "name": "새벽출판",
       "category": "단행본",
       "revenue": 309.7,
       "titles": 620,
@@ -594,7 +594,7 @@
     },
     {
       "rank": 74,
-      "name": "예솔미디어",
+      "name": "노을출판",
       "category": "아동",
       "revenue": 306.7,
       "titles": 960,
@@ -602,7 +602,7 @@
     },
     {
       "rank": 75,
-      "name": "보름미디어",
+      "name": "단비출판",
       "category": "IT/실용",
       "revenue": 303.7,
       "titles": 700,
@@ -610,7 +610,7 @@
     },
     {
       "rank": 76,
-      "name": "다솜미디어",
+      "name": "샘터출판",
       "category": "학습",
       "revenue": 300.8,
       "titles": 760,
@@ -618,7 +618,7 @@
     },
     {
       "rank": 77,
-      "name": "슬기미디어",
+      "name": "옹달출판",
       "category": "교육",
       "revenue": 298.0,
       "titles": 710,
@@ -626,7 +626,7 @@
     },
     {
       "rank": 78,
-      "name": "누리미디어",
+      "name": "너른출판",
       "category": "어학",
       "revenue": 295.3,
       "titles": 770,
@@ -634,7 +634,7 @@
     },
     {
       "rank": 79,
-      "name": "든해미디어",
+      "name": "포근출판",
       "category": "단행본",
       "revenue": 292.6,
       "titles": 820,
@@ -642,7 +642,7 @@
     },
     {
       "rank": 80,
-      "name": "아라미디어",
+      "name": "고운출판",
       "category": "아동",
       "revenue": 289.9,
       "titles": 780,
@@ -650,7 +650,7 @@
     },
     {
       "rank": 81,
-      "name": "한빛북스",
+      "name": "맑음출판",
       "category": "IT/실용",
       "revenue": 287.3,
       "titles": 520,
@@ -658,7 +658,7 @@
     },
     {
       "rank": 82,
-      "name": "새움북스",
+      "name": "차오름출판",
       "category": "학습",
       "revenue": 284.8,
       "titles": 920,
@@ -666,7 +666,7 @@
     },
     {
       "rank": 83,
-      "name": "푸른북스",
+      "name": "이룸출판",
       "category": "교육",
       "revenue": 282.3,
       "titles": 860,
@@ -674,7 +674,7 @@
     },
     {
       "rank": 84,
-      "name": "밝은북스",
+      "name": "펴는출판",
       "category": "어학",
       "revenue": 279.9,
       "titles": 550,
@@ -682,7 +682,7 @@
     },
     {
       "rank": 85,
-      "name": "열림북스",
+      "name": "지음출판",
       "category": "단행본",
       "revenue": 277.5,
       "titles": 700,
@@ -690,7 +690,7 @@
     },
     {
       "rank": 86,
-      "name": "다온북스",
+      "name": "새움미디어",
       "category": "아동",
       "revenue": 275.2,
       "titles": 1030,
@@ -698,7 +698,7 @@
     },
     {
       "rank": 87,
-      "name": "온새미북스",
+      "name": "푸른미디어",
       "category": "IT/실용",
       "revenue": 272.9,
       "titles": 530,
@@ -706,7 +706,7 @@
     },
     {
       "rank": 88,
-      "name": "가온북스",
+      "name": "밝은미디어",
       "category": "학습",
       "revenue": 270.7,
       "titles": 630,
@@ -714,7 +714,7 @@
     },
     {
       "rank": 89,
-      "name": "이든북스",
+      "name": "열림미디어",
       "category": "교육",
       "revenue": 268.5,
       "titles": 860,
@@ -722,7 +722,7 @@
     },
     {
       "rank": 90,
-      "name": "라온북스",
+      "name": "다온미디어",
       "category": "어학",
       "revenue": 266.4,
       "titles": 750,
@@ -730,7 +730,7 @@
     },
     {
       "rank": 91,
-      "name": "해솔북스",
+      "name": "온새미미디어",
       "category": "단행본",
       "revenue": 264.2,
       "titles": 600,
@@ -738,7 +738,7 @@
     },
     {
       "rank": 92,
-      "name": "미리내북스",
+      "name": "가온미디어",
       "category": "아동",
       "revenue": 262.2,
       "titles": 750,
@@ -746,7 +746,7 @@
     },
     {
       "rank": 93,
-      "name": "너울북스",
+      "name": "이든미디어",
       "category": "IT/실용",
       "revenue": 260.1,
       "titles": 620,
@@ -754,7 +754,7 @@
     },
     {
       "rank": 94,
-      "name": "예솔북스",
+      "name": "라온미디어",
       "category": "학습",
       "revenue": 258.1,
       "titles": 790,
@@ -762,7 +762,7 @@
     },
     {
       "rank": 95,
-      "name": "보름북스",
+      "name": "해솔미디어",
       "category": "교육",
       "revenue": 256.2,
       "titles": 640,
@@ -770,7 +770,7 @@
     },
     {
       "rank": 96,
-      "name": "다솜북스",
+      "name": "미리내미디어",
       "category": "어학",
       "revenue": 254.3,
       "titles": 610,
@@ -778,7 +778,7 @@
     },
     {
       "rank": 97,
-      "name": "슬기북스",
+      "name": "너울미디어",
       "category": "단행본",
       "revenue": 252.4,
       "titles": 780,
@@ -786,7 +786,7 @@
     },
     {
       "rank": 98,
-      "name": "누리북스",
+      "name": "예솔미디어",
       "category": "아동",
       "revenue": 250.5,
       "titles": 810,
@@ -794,7 +794,7 @@
     },
     {
       "rank": 99,
-      "name": "든해북스",
+      "name": "보름미디어",
       "category": "IT/실용",
       "revenue": 248.7,
       "titles": 430,
@@ -802,11 +802,1611 @@
     },
     {
       "rank": 100,
-      "name": "아라북스",
+      "name": "다솜미디어",
       "category": "학습",
       "revenue": 246.9,
       "titles": 770,
       "rev_per_title": 32.06
+    },
+    {
+      "rank": 101,
+      "name": "슬기미디어",
+      "category": "교육",
+      "revenue": 245.1,
+      "titles": 870,
+      "rev_per_title": 28.17
+    },
+    {
+      "rank": 102,
+      "name": "누리미디어",
+      "category": "어학",
+      "revenue": 243.4,
+      "titles": 550,
+      "rev_per_title": 44.25
+    },
+    {
+      "rank": 103,
+      "name": "든해미디어",
+      "category": "단행본",
+      "revenue": 241.7,
+      "titles": 560,
+      "rev_per_title": 43.16
+    },
+    {
+      "rank": 104,
+      "name": "아라미디어",
+      "category": "아동",
+      "revenue": 240.0,
+      "titles": 910,
+      "rev_per_title": 26.37
+    },
+    {
+      "rank": 105,
+      "name": "청람미디어",
+      "category": "IT/실용",
+      "revenue": 238.4,
+      "titles": 560,
+      "rev_per_title": 42.57
+    },
+    {
+      "rank": 106,
+      "name": "도담미디어",
+      "category": "학습",
+      "revenue": 236.7,
+      "titles": 590,
+      "rev_per_title": 40.12
+    },
+    {
+      "rank": 107,
+      "name": "여울미디어",
+      "category": "교육",
+      "revenue": 235.2,
+      "titles": 690,
+      "rev_per_title": 34.09
+    },
+    {
+      "rank": 108,
+      "name": "소담미디어",
+      "category": "어학",
+      "revenue": 233.6,
+      "titles": 710,
+      "rev_per_title": 32.9
+    },
+    {
+      "rank": 109,
+      "name": "한결미디어",
+      "category": "단행본",
+      "revenue": 232.0,
+      "titles": 640,
+      "rev_per_title": 36.25
+    },
+    {
+      "rank": 110,
+      "name": "빛솔미디어",
+      "category": "아동",
+      "revenue": 230.5,
+      "titles": 640,
+      "rev_per_title": 36.02
+    },
+    {
+      "rank": 111,
+      "name": "나래미디어",
+      "category": "IT/실용",
+      "revenue": 229.0,
+      "titles": 520,
+      "rev_per_title": 44.04
+    },
+    {
+      "rank": 112,
+      "name": "초록미디어",
+      "category": "학습",
+      "revenue": 227.5,
+      "titles": 800,
+      "rev_per_title": 28.44
+    },
+    {
+      "rank": 113,
+      "name": "물결미디어",
+      "category": "교육",
+      "revenue": 226.1,
+      "titles": 660,
+      "rev_per_title": 34.26
+    },
+    {
+      "rank": 114,
+      "name": "바람미디어",
+      "category": "어학",
+      "revenue": 224.7,
+      "titles": 500,
+      "rev_per_title": 44.94
+    },
+    {
+      "rank": 115,
+      "name": "구름미디어",
+      "category": "단행본",
+      "revenue": 223.3,
+      "titles": 690,
+      "rev_per_title": 32.36
+    },
+    {
+      "rank": 116,
+      "name": "은하미디어",
+      "category": "아동",
+      "revenue": 221.9,
+      "titles": 860,
+      "rev_per_title": 25.8
+    },
+    {
+      "rank": 117,
+      "name": "새벽미디어",
+      "category": "IT/실용",
+      "revenue": 220.5,
+      "titles": 420,
+      "rev_per_title": 52.5
+    },
+    {
+      "rank": 118,
+      "name": "노을미디어",
+      "category": "학습",
+      "revenue": 219.2,
+      "titles": 610,
+      "rev_per_title": 35.93
+    },
+    {
+      "rank": 119,
+      "name": "단비미디어",
+      "category": "교육",
+      "revenue": 217.8,
+      "titles": 810,
+      "rev_per_title": 26.89
+    },
+    {
+      "rank": 120,
+      "name": "샘터미디어",
+      "category": "어학",
+      "revenue": 216.5,
+      "titles": 590,
+      "rev_per_title": 36.69
+    },
+    {
+      "rank": 121,
+      "name": "옹달미디어",
+      "category": "단행본",
+      "revenue": 215.2,
+      "titles": 490,
+      "rev_per_title": 43.92
+    },
+    {
+      "rank": 122,
+      "name": "너른미디어",
+      "category": "아동",
+      "revenue": 214.0,
+      "titles": 760,
+      "rev_per_title": 28.16
+    },
+    {
+      "rank": 123,
+      "name": "포근미디어",
+      "category": "IT/실용",
+      "revenue": 212.7,
+      "titles": 560,
+      "rev_per_title": 37.98
+    },
+    {
+      "rank": 124,
+      "name": "고운미디어",
+      "category": "학습",
+      "revenue": 211.5,
+      "titles": 620,
+      "rev_per_title": 34.11
+    },
+    {
+      "rank": 125,
+      "name": "맑음미디어",
+      "category": "교육",
+      "revenue": 210.2,
+      "titles": 570,
+      "rev_per_title": 36.88
+    },
+    {
+      "rank": 126,
+      "name": "차오름미디어",
+      "category": "어학",
+      "revenue": 209.0,
+      "titles": 620,
+      "rev_per_title": 33.71
+    },
+    {
+      "rank": 127,
+      "name": "이룸미디어",
+      "category": "단행본",
+      "revenue": 207.9,
+      "titles": 670,
+      "rev_per_title": 31.03
+    },
+    {
+      "rank": 128,
+      "name": "펴는미디어",
+      "category": "아동",
+      "revenue": 206.7,
+      "titles": 630,
+      "rev_per_title": 32.81
+    },
+    {
+      "rank": 129,
+      "name": "지음미디어",
+      "category": "IT/실용",
+      "revenue": 205.5,
+      "titles": 420,
+      "rev_per_title": 48.93
+    },
+    {
+      "rank": 130,
+      "name": "한빛북스",
+      "category": "학습",
+      "revenue": 204.4,
+      "titles": 740,
+      "rev_per_title": 27.62
+    },
+    {
+      "rank": 131,
+      "name": "새움북스",
+      "category": "교육",
+      "revenue": 203.3,
+      "titles": 710,
+      "rev_per_title": 28.63
+    },
+    {
+      "rank": 132,
+      "name": "푸른북스",
+      "category": "어학",
+      "revenue": 202.2,
+      "titles": 450,
+      "rev_per_title": 44.93
+    },
+    {
+      "rank": 133,
+      "name": "밝은북스",
+      "category": "단행본",
+      "revenue": 201.1,
+      "titles": 570,
+      "rev_per_title": 35.28
+    },
+    {
+      "rank": 134,
+      "name": "열림북스",
+      "category": "아동",
+      "revenue": 200.0,
+      "titles": 850,
+      "rev_per_title": 23.53
+    },
+    {
+      "rank": 135,
+      "name": "다온북스",
+      "category": "IT/실용",
+      "revenue": 198.9,
+      "titles": 440,
+      "rev_per_title": 45.2
+    },
+    {
+      "rank": 136,
+      "name": "온새미북스",
+      "category": "학습",
+      "revenue": 197.9,
+      "titles": 520,
+      "rev_per_title": 38.06
+    },
+    {
+      "rank": 137,
+      "name": "가온북스",
+      "category": "교육",
+      "revenue": 196.8,
+      "titles": 700,
+      "rev_per_title": 28.11
+    },
+    {
+      "rank": 138,
+      "name": "이든북스",
+      "category": "어학",
+      "revenue": 195.8,
+      "titles": 620,
+      "rev_per_title": 31.58
+    },
+    {
+      "rank": 139,
+      "name": "라온북스",
+      "category": "단행본",
+      "revenue": 194.8,
+      "titles": 500,
+      "rev_per_title": 38.96
+    },
+    {
+      "rank": 140,
+      "name": "해솔북스",
+      "category": "아동",
+      "revenue": 193.8,
+      "titles": 620,
+      "rev_per_title": 31.26
+    },
+    {
+      "rank": 141,
+      "name": "미리내북스",
+      "category": "IT/실용",
+      "revenue": 192.8,
+      "titles": 510,
+      "rev_per_title": 37.8
+    },
+    {
+      "rank": 142,
+      "name": "너울북스",
+      "category": "학습",
+      "revenue": 191.8,
+      "titles": 670,
+      "rev_per_title": 28.63
+    },
+    {
+      "rank": 143,
+      "name": "예솔북스",
+      "category": "교육",
+      "revenue": 190.8,
+      "titles": 530,
+      "rev_per_title": 36.0
+    },
+    {
+      "rank": 144,
+      "name": "보름북스",
+      "category": "어학",
+      "revenue": 189.9,
+      "titles": 500,
+      "rev_per_title": 37.98
+    },
+    {
+      "rank": 145,
+      "name": "다솜북스",
+      "category": "단행본",
+      "revenue": 188.9,
+      "titles": 650,
+      "rev_per_title": 29.06
+    },
+    {
+      "rank": 146,
+      "name": "슬기북스",
+      "category": "아동",
+      "revenue": 188.0,
+      "titles": 690,
+      "rev_per_title": 27.25
+    },
+    {
+      "rank": 147,
+      "name": "누리북스",
+      "category": "IT/실용",
+      "revenue": 187.1,
+      "titles": 360,
+      "rev_per_title": 51.97
+    },
+    {
+      "rank": 148,
+      "name": "든해북스",
+      "category": "학습",
+      "revenue": 186.2,
+      "titles": 630,
+      "rev_per_title": 29.56
+    },
+    {
+      "rank": 149,
+      "name": "아라북스",
+      "category": "교육",
+      "revenue": 185.3,
+      "titles": 730,
+      "rev_per_title": 25.38
+    },
+    {
+      "rank": 150,
+      "name": "청람북스",
+      "category": "어학",
+      "revenue": 184.4,
+      "titles": 470,
+      "rev_per_title": 39.23
+    },
+    {
+      "rank": 151,
+      "name": "도담북스",
+      "category": "단행본",
+      "revenue": 183.5,
+      "titles": 470,
+      "rev_per_title": 39.04
+    },
+    {
+      "rank": 152,
+      "name": "여울북스",
+      "category": "아동",
+      "revenue": 182.6,
+      "titles": 760,
+      "rev_per_title": 24.03
+    },
+    {
+      "rank": 153,
+      "name": "소담북스",
+      "category": "IT/실용",
+      "revenue": 181.8,
+      "titles": 480,
+      "rev_per_title": 37.88
+    },
+    {
+      "rank": 154,
+      "name": "한결북스",
+      "category": "학습",
+      "revenue": 180.9,
+      "titles": 500,
+      "rev_per_title": 36.18
+    },
+    {
+      "rank": 155,
+      "name": "빛솔북스",
+      "category": "교육",
+      "revenue": 180.1,
+      "titles": 580,
+      "rev_per_title": 31.05
+    },
+    {
+      "rank": 156,
+      "name": "나래북스",
+      "category": "어학",
+      "revenue": 179.3,
+      "titles": 600,
+      "rev_per_title": 29.88
+    },
+    {
+      "rank": 157,
+      "name": "초록북스",
+      "category": "단행본",
+      "revenue": 178.4,
+      "titles": 550,
+      "rev_per_title": 32.44
+    },
+    {
+      "rank": 158,
+      "name": "물결북스",
+      "category": "아동",
+      "revenue": 177.6,
+      "titles": 550,
+      "rev_per_title": 32.29
+    },
+    {
+      "rank": 159,
+      "name": "바람북스",
+      "category": "IT/실용",
+      "revenue": 176.8,
+      "titles": 430,
+      "rev_per_title": 41.12
+    },
+    {
+      "rank": 160,
+      "name": "구름북스",
+      "category": "학습",
+      "revenue": 176.0,
+      "titles": 680,
+      "rev_per_title": 25.88
+    },
+    {
+      "rank": 161,
+      "name": "은하북스",
+      "category": "교육",
+      "revenue": 175.2,
+      "titles": 570,
+      "rev_per_title": 30.74
+    },
+    {
+      "rank": 162,
+      "name": "새벽북스",
+      "category": "어학",
+      "revenue": 174.4,
+      "titles": 420,
+      "rev_per_title": 41.52
+    },
+    {
+      "rank": 163,
+      "name": "노을북스",
+      "category": "단행본",
+      "revenue": 173.7,
+      "titles": 580,
+      "rev_per_title": 29.95
+    },
+    {
+      "rank": 164,
+      "name": "단비북스",
+      "category": "아동",
+      "revenue": 172.9,
+      "titles": 740,
+      "rev_per_title": 23.36
+    },
+    {
+      "rank": 165,
+      "name": "샘터북스",
+      "category": "IT/실용",
+      "revenue": 172.2,
+      "titles": 360,
+      "rev_per_title": 47.83
+    },
+    {
+      "rank": 166,
+      "name": "옹달북스",
+      "category": "학습",
+      "revenue": 171.4,
+      "titles": 520,
+      "rev_per_title": 32.96
+    },
+    {
+      "rank": 167,
+      "name": "너른북스",
+      "category": "교육",
+      "revenue": 170.7,
+      "titles": 700,
+      "rev_per_title": 24.39
+    },
+    {
+      "rank": 168,
+      "name": "포근북스",
+      "category": "어학",
+      "revenue": 169.9,
+      "titles": 520,
+      "rev_per_title": 32.67
+    },
+    {
+      "rank": 169,
+      "name": "고운북스",
+      "category": "단행본",
+      "revenue": 169.2,
+      "titles": 430,
+      "rev_per_title": 39.35
+    },
+    {
+      "rank": 170,
+      "name": "맑음북스",
+      "category": "아동",
+      "revenue": 168.5,
+      "titles": 640,
+      "rev_per_title": 26.33
+    },
+    {
+      "rank": 171,
+      "name": "차오름북스",
+      "category": "IT/실용",
+      "revenue": 167.8,
+      "titles": 490,
+      "rev_per_title": 34.24
+    },
+    {
+      "rank": 172,
+      "name": "이룸북스",
+      "category": "학습",
+      "revenue": 167.1,
+      "titles": 540,
+      "rev_per_title": 30.94
+    },
+    {
+      "rank": 173,
+      "name": "펴는북스",
+      "category": "교육",
+      "revenue": 166.4,
+      "titles": 490,
+      "rev_per_title": 33.96
+    },
+    {
+      "rank": 174,
+      "name": "지음북스",
+      "category": "어학",
+      "revenue": 165.7,
+      "titles": 530,
+      "rev_per_title": 31.26
+    },
+    {
+      "rank": 175,
+      "name": "한빛에듀",
+      "category": "단행본",
+      "revenue": 165.0,
+      "titles": 580,
+      "rev_per_title": 28.45
+    },
+    {
+      "rank": 176,
+      "name": "새움에듀",
+      "category": "아동",
+      "revenue": 164.3,
+      "titles": 560,
+      "rev_per_title": 29.34
+    },
+    {
+      "rank": 177,
+      "name": "푸른에듀",
+      "category": "IT/실용",
+      "revenue": 163.7,
+      "titles": 360,
+      "rev_per_title": 45.47
+    },
+    {
+      "rank": 178,
+      "name": "밝은에듀",
+      "category": "학습",
+      "revenue": 163.0,
+      "titles": 640,
+      "rev_per_title": 25.47
+    },
+    {
+      "rank": 179,
+      "name": "열림에듀",
+      "category": "교육",
+      "revenue": 162.4,
+      "titles": 620,
+      "rev_per_title": 26.19
+    },
+    {
+      "rank": 180,
+      "name": "다온에듀",
+      "category": "어학",
+      "revenue": 161.7,
+      "titles": 400,
+      "rev_per_title": 40.42
+    },
+    {
+      "rank": 181,
+      "name": "온새미에듀",
+      "category": "단행본",
+      "revenue": 161.1,
+      "titles": 490,
+      "rev_per_title": 32.88
+    },
+    {
+      "rank": 182,
+      "name": "가온에듀",
+      "category": "아동",
+      "revenue": 160.4,
+      "titles": 740,
+      "rev_per_title": 21.68
+    },
+    {
+      "rank": 183,
+      "name": "이든에듀",
+      "category": "IT/실용",
+      "revenue": 159.8,
+      "titles": 390,
+      "rev_per_title": 40.97
+    },
+    {
+      "rank": 184,
+      "name": "라온에듀",
+      "category": "학습",
+      "revenue": 159.2,
+      "titles": 450,
+      "rev_per_title": 35.38
+    },
+    {
+      "rank": 185,
+      "name": "해솔에듀",
+      "category": "교육",
+      "revenue": 158.5,
+      "titles": 610,
+      "rev_per_title": 25.98
+    },
+    {
+      "rank": 186,
+      "name": "미리내에듀",
+      "category": "어학",
+      "revenue": 157.9,
+      "titles": 550,
+      "rev_per_title": 28.71
+    },
+    {
+      "rank": 187,
+      "name": "너울에듀",
+      "category": "단행본",
+      "revenue": 157.3,
+      "titles": 440,
+      "rev_per_title": 35.75
+    },
+    {
+      "rank": 188,
+      "name": "예솔에듀",
+      "category": "아동",
+      "revenue": 156.7,
+      "titles": 530,
+      "rev_per_title": 29.57
+    },
+    {
+      "rank": 189,
+      "name": "보름에듀",
+      "category": "IT/실용",
+      "revenue": 156.1,
+      "titles": 450,
+      "rev_per_title": 34.69
+    },
+    {
+      "rank": 190,
+      "name": "다솜에듀",
+      "category": "학습",
+      "revenue": 155.5,
+      "titles": 590,
+      "rev_per_title": 26.36
+    },
+    {
+      "rank": 191,
+      "name": "슬기에듀",
+      "category": "교육",
+      "revenue": 154.9,
+      "titles": 470,
+      "rev_per_title": 32.96
+    },
+    {
+      "rank": 192,
+      "name": "누리에듀",
+      "category": "어학",
+      "revenue": 154.4,
+      "titles": 440,
+      "rev_per_title": 35.09
+    },
+    {
+      "rank": 193,
+      "name": "든해에듀",
+      "category": "단행본",
+      "revenue": 153.8,
+      "titles": 570,
+      "rev_per_title": 26.98
+    },
+    {
+      "rank": 194,
+      "name": "아라에듀",
+      "category": "아동",
+      "revenue": 153.2,
+      "titles": 610,
+      "rev_per_title": 25.11
+    },
+    {
+      "rank": 195,
+      "name": "청람에듀",
+      "category": "IT/실용",
+      "revenue": 152.6,
+      "titles": 320,
+      "rev_per_title": 47.69
+    },
+    {
+      "rank": 196,
+      "name": "도담에듀",
+      "category": "학습",
+      "revenue": 152.1,
+      "titles": 550,
+      "rev_per_title": 27.65
+    },
+    {
+      "rank": 197,
+      "name": "여울에듀",
+      "category": "교육",
+      "revenue": 151.5,
+      "titles": 650,
+      "rev_per_title": 23.31
+    },
+    {
+      "rank": 198,
+      "name": "소담에듀",
+      "category": "어학",
+      "revenue": 151.0,
+      "titles": 420,
+      "rev_per_title": 35.95
+    },
+    {
+      "rank": 199,
+      "name": "한결에듀",
+      "category": "단행본",
+      "revenue": 150.4,
+      "titles": 410,
+      "rev_per_title": 36.68
+    },
+    {
+      "rank": 200,
+      "name": "빛솔에듀",
+      "category": "아동",
+      "revenue": 149.9,
+      "titles": 670,
+      "rev_per_title": 22.37
+    },
+    {
+      "rank": 201,
+      "name": "나래에듀",
+      "category": "IT/실용",
+      "revenue": 149.4,
+      "titles": 430,
+      "rev_per_title": 34.74
+    },
+    {
+      "rank": 202,
+      "name": "초록에듀",
+      "category": "학습",
+      "revenue": 148.8,
+      "titles": 450,
+      "rev_per_title": 33.07
+    },
+    {
+      "rank": 203,
+      "name": "물결에듀",
+      "category": "교육",
+      "revenue": 148.3,
+      "titles": 500,
+      "rev_per_title": 29.66
+    },
+    {
+      "rank": 204,
+      "name": "바람에듀",
+      "category": "어학",
+      "revenue": 147.8,
+      "titles": 530,
+      "rev_per_title": 27.89
+    },
+    {
+      "rank": 205,
+      "name": "구름에듀",
+      "category": "단행본",
+      "revenue": 147.2,
+      "titles": 490,
+      "rev_per_title": 30.04
+    },
+    {
+      "rank": 206,
+      "name": "은하에듀",
+      "category": "아동",
+      "revenue": 146.7,
+      "titles": 490,
+      "rev_per_title": 29.94
+    },
+    {
+      "rank": 207,
+      "name": "새벽에듀",
+      "category": "IT/실용",
+      "revenue": 146.2,
+      "titles": 380,
+      "rev_per_title": 38.47
+    },
+    {
+      "rank": 208,
+      "name": "노을에듀",
+      "category": "학습",
+      "revenue": 145.7,
+      "titles": 610,
+      "rev_per_title": 23.89
+    },
+    {
+      "rank": 209,
+      "name": "단비에듀",
+      "category": "교육",
+      "revenue": 145.2,
+      "titles": 510,
+      "rev_per_title": 28.47
+    },
+    {
+      "rank": 210,
+      "name": "샘터에듀",
+      "category": "어학",
+      "revenue": 144.7,
+      "titles": 370,
+      "rev_per_title": 39.11
+    },
+    {
+      "rank": 211,
+      "name": "옹달에듀",
+      "category": "단행본",
+      "revenue": 144.2,
+      "titles": 510,
+      "rev_per_title": 28.27
+    },
+    {
+      "rank": 212,
+      "name": "너른에듀",
+      "category": "아동",
+      "revenue": 143.7,
+      "titles": 660,
+      "rev_per_title": 21.77
+    },
+    {
+      "rank": 213,
+      "name": "포근에듀",
+      "category": "IT/실용",
+      "revenue": 143.2,
+      "titles": 320,
+      "rev_per_title": 44.75
+    },
+    {
+      "rank": 214,
+      "name": "고운에듀",
+      "category": "학습",
+      "revenue": 142.8,
+      "titles": 460,
+      "rev_per_title": 31.04
+    },
+    {
+      "rank": 215,
+      "name": "맑음에듀",
+      "category": "교육",
+      "revenue": 142.3,
+      "titles": 620,
+      "rev_per_title": 22.95
+    },
+    {
+      "rank": 216,
+      "name": "차오름에듀",
+      "category": "어학",
+      "revenue": 141.8,
+      "titles": 470,
+      "rev_per_title": 30.17
+    },
+    {
+      "rank": 217,
+      "name": "이룸에듀",
+      "category": "단행본",
+      "revenue": 141.3,
+      "titles": 380,
+      "rev_per_title": 37.18
+    },
+    {
+      "rank": 218,
+      "name": "펴는에듀",
+      "category": "아동",
+      "revenue": 140.9,
+      "titles": 570,
+      "rev_per_title": 24.72
+    },
+    {
+      "rank": 219,
+      "name": "지음에듀",
+      "category": "IT/실용",
+      "revenue": 140.4,
+      "titles": 430,
+      "rev_per_title": 32.65
+    },
+    {
+      "rank": 220,
+      "name": "한빛프레스",
+      "category": "학습",
+      "revenue": 139.9,
+      "titles": 490,
+      "rev_per_title": 28.55
+    },
+    {
+      "rank": 221,
+      "name": "새움프레스",
+      "category": "교육",
+      "revenue": 139.5,
+      "titles": 440,
+      "rev_per_title": 31.7
+    },
+    {
+      "rank": 222,
+      "name": "푸른프레스",
+      "category": "어학",
+      "revenue": 139.0,
+      "titles": 470,
+      "rev_per_title": 29.57
+    },
+    {
+      "rank": 223,
+      "name": "밝은프레스",
+      "category": "단행본",
+      "revenue": 138.6,
+      "titles": 530,
+      "rev_per_title": 26.15
+    },
+    {
+      "rank": 224,
+      "name": "열림프레스",
+      "category": "아동",
+      "revenue": 138.1,
+      "titles": 510,
+      "rev_per_title": 27.08
+    },
+    {
+      "rank": 225,
+      "name": "다온프레스",
+      "category": "IT/실용",
+      "revenue": 137.7,
+      "titles": 320,
+      "rev_per_title": 43.03
+    },
+    {
+      "rank": 226,
+      "name": "온새미프레스",
+      "category": "학습",
+      "revenue": 137.3,
+      "titles": 570,
+      "rev_per_title": 24.09
+    },
+    {
+      "rank": 227,
+      "name": "가온프레스",
+      "category": "교육",
+      "revenue": 136.8,
+      "titles": 570,
+      "rev_per_title": 24.0
+    },
+    {
+      "rank": 228,
+      "name": "이든프레스",
+      "category": "어학",
+      "revenue": 136.4,
+      "titles": 360,
+      "rev_per_title": 37.89
+    },
+    {
+      "rank": 229,
+      "name": "라온프레스",
+      "category": "단행본",
+      "revenue": 136.0,
+      "titles": 430,
+      "rev_per_title": 31.63
+    },
+    {
+      "rank": 230,
+      "name": "해솔프레스",
+      "category": "아동",
+      "revenue": 135.5,
+      "titles": 660,
+      "rev_per_title": 20.53
+    },
+    {
+      "rank": 231,
+      "name": "미리내프레스",
+      "category": "IT/실용",
+      "revenue": 135.1,
+      "titles": 360,
+      "rev_per_title": 37.53
+    },
+    {
+      "rank": 232,
+      "name": "너울프레스",
+      "category": "학습",
+      "revenue": 134.7,
+      "titles": 410,
+      "rev_per_title": 32.85
+    },
+    {
+      "rank": 233,
+      "name": "예솔프레스",
+      "category": "교육",
+      "revenue": 134.3,
+      "titles": 540,
+      "rev_per_title": 24.87
+    },
+    {
+      "rank": 234,
+      "name": "보름프레스",
+      "category": "어학",
+      "revenue": 133.9,
+      "titles": 490,
+      "rev_per_title": 27.33
+    },
+    {
+      "rank": 235,
+      "name": "다솜프레스",
+      "category": "단행본",
+      "revenue": 133.5,
+      "titles": 410,
+      "rev_per_title": 32.56
+    },
+    {
+      "rank": 236,
+      "name": "슬기프레스",
+      "category": "아동",
+      "revenue": 133.0,
+      "titles": 480,
+      "rev_per_title": 27.71
+    },
+    {
+      "rank": 237,
+      "name": "누리프레스",
+      "category": "IT/실용",
+      "revenue": 132.6,
+      "titles": 400,
+      "rev_per_title": 33.15
+    },
+    {
+      "rank": 238,
+      "name": "든해프레스",
+      "category": "학습",
+      "revenue": 132.2,
+      "titles": 540,
+      "rev_per_title": 24.48
+    },
+    {
+      "rank": 239,
+      "name": "아라프레스",
+      "category": "교육",
+      "revenue": 131.8,
+      "titles": 430,
+      "rev_per_title": 30.65
+    },
+    {
+      "rank": 240,
+      "name": "청람프레스",
+      "category": "어학",
+      "revenue": 131.4,
+      "titles": 390,
+      "rev_per_title": 33.69
+    },
+    {
+      "rank": 241,
+      "name": "도담프레스",
+      "category": "단행본",
+      "revenue": 131.1,
+      "titles": 520,
+      "rev_per_title": 25.21
+    },
+    {
+      "rank": 242,
+      "name": "여울프레스",
+      "category": "아동",
+      "revenue": 130.7,
+      "titles": 560,
+      "rev_per_title": 23.34
+    },
+    {
+      "rank": 243,
+      "name": "소담프레스",
+      "category": "IT/실용",
+      "revenue": 130.3,
+      "titles": 290,
+      "rev_per_title": 44.93
+    },
+    {
+      "rank": 244,
+      "name": "한결프레스",
+      "category": "학습",
+      "revenue": 129.9,
+      "titles": 490,
+      "rev_per_title": 26.51
+    },
+    {
+      "rank": 245,
+      "name": "빛솔프레스",
+      "category": "교육",
+      "revenue": 129.5,
+      "titles": 590,
+      "rev_per_title": 21.95
+    },
+    {
+      "rank": 246,
+      "name": "나래프레스",
+      "category": "어학",
+      "revenue": 129.1,
+      "titles": 390,
+      "rev_per_title": 33.1
+    },
+    {
+      "rank": 247,
+      "name": "초록프레스",
+      "category": "단행본",
+      "revenue": 128.8,
+      "titles": 370,
+      "rev_per_title": 34.81
+    },
+    {
+      "rank": 248,
+      "name": "물결프레스",
+      "category": "아동",
+      "revenue": 128.4,
+      "titles": 600,
+      "rev_per_title": 21.4
+    },
+    {
+      "rank": 249,
+      "name": "바람프레스",
+      "category": "IT/실용",
+      "revenue": 128.0,
+      "titles": 390,
+      "rev_per_title": 32.82
+    },
+    {
+      "rank": 250,
+      "name": "구름프레스",
+      "category": "학습",
+      "revenue": 127.6,
+      "titles": 410,
+      "rev_per_title": 31.12
+    },
+    {
+      "rank": 251,
+      "name": "은하프레스",
+      "category": "교육",
+      "revenue": 127.3,
+      "titles": 450,
+      "rev_per_title": 28.29
+    },
+    {
+      "rank": 252,
+      "name": "새벽프레스",
+      "category": "어학",
+      "revenue": 126.9,
+      "titles": 480,
+      "rev_per_title": 26.44
+    },
+    {
+      "rank": 253,
+      "name": "노을프레스",
+      "category": "단행본",
+      "revenue": 126.5,
+      "titles": 450,
+      "rev_per_title": 28.11
+    },
+    {
+      "rank": 254,
+      "name": "단비프레스",
+      "category": "아동",
+      "revenue": 126.2,
+      "titles": 440,
+      "rev_per_title": 28.68
+    },
+    {
+      "rank": 255,
+      "name": "샘터프레스",
+      "category": "IT/실용",
+      "revenue": 125.8,
+      "titles": 340,
+      "rev_per_title": 37.0
+    },
+    {
+      "rank": 256,
+      "name": "옹달프레스",
+      "category": "학습",
+      "revenue": 125.5,
+      "titles": 560,
+      "rev_per_title": 22.41
+    },
+    {
+      "rank": 257,
+      "name": "너른프레스",
+      "category": "교육",
+      "revenue": 125.1,
+      "titles": 470,
+      "rev_per_title": 26.62
+    },
+    {
+      "rank": 258,
+      "name": "포근프레스",
+      "category": "어학",
+      "revenue": 124.8,
+      "titles": 340,
+      "rev_per_title": 36.71
+    },
+    {
+      "rank": 259,
+      "name": "고운프레스",
+      "category": "단행본",
+      "revenue": 124.4,
+      "titles": 460,
+      "rev_per_title": 27.04
+    },
+    {
+      "rank": 260,
+      "name": "맑음프레스",
+      "category": "아동",
+      "revenue": 124.1,
+      "titles": 610,
+      "rev_per_title": 20.34
+    },
+    {
+      "rank": 261,
+      "name": "차오름프레스",
+      "category": "IT/실용",
+      "revenue": 123.7,
+      "titles": 300,
+      "rev_per_title": 41.23
+    },
+    {
+      "rank": 262,
+      "name": "이룸프레스",
+      "category": "학습",
+      "revenue": 123.4,
+      "titles": 410,
+      "rev_per_title": 30.1
+    },
+    {
+      "rank": 263,
+      "name": "펴는프레스",
+      "category": "교육",
+      "revenue": 123.1,
+      "titles": 560,
+      "rev_per_title": 21.98
+    },
+    {
+      "rank": 264,
+      "name": "지음프레스",
+      "category": "어학",
+      "revenue": 122.7,
+      "titles": 430,
+      "rev_per_title": 28.53
+    },
+    {
+      "rank": 265,
+      "name": "한빛문화사",
+      "category": "단행본",
+      "revenue": 122.4,
+      "titles": 350,
+      "rev_per_title": 34.97
+    },
+    {
+      "rank": 266,
+      "name": "새움문화사",
+      "category": "아동",
+      "revenue": 122.1,
+      "titles": 510,
+      "rev_per_title": 23.94
+    },
+    {
+      "rank": 267,
+      "name": "푸른문화사",
+      "category": "IT/실용",
+      "revenue": 121.7,
+      "titles": 400,
+      "rev_per_title": 30.43
+    },
+    {
+      "rank": 268,
+      "name": "밝은문화사",
+      "category": "학습",
+      "revenue": 121.4,
+      "titles": 460,
+      "rev_per_title": 26.39
+    },
+    {
+      "rank": 269,
+      "name": "열림문화사",
+      "category": "교육",
+      "revenue": 121.1,
+      "titles": 400,
+      "rev_per_title": 30.27
+    },
+    {
+      "rank": 270,
+      "name": "다온문화사",
+      "category": "어학",
+      "revenue": 120.8,
+      "titles": 420,
+      "rev_per_title": 28.76
+    },
+    {
+      "rank": 271,
+      "name": "온새미문화사",
+      "category": "단행본",
+      "revenue": 120.4,
+      "titles": 490,
+      "rev_per_title": 24.57
+    },
+    {
+      "rank": 272,
+      "name": "가온문화사",
+      "category": "아동",
+      "revenue": 120.1,
+      "titles": 470,
+      "rev_per_title": 25.55
+    },
+    {
+      "rank": 273,
+      "name": "이든문화사",
+      "category": "IT/실용",
+      "revenue": 119.8,
+      "titles": 290,
+      "rev_per_title": 41.31
+    },
+    {
+      "rank": 274,
+      "name": "라온문화사",
+      "category": "학습",
+      "revenue": 119.5,
+      "titles": 520,
+      "rev_per_title": 22.98
+    },
+    {
+      "rank": 275,
+      "name": "해솔문화사",
+      "category": "교육",
+      "revenue": 119.2,
+      "titles": 530,
+      "rev_per_title": 22.49
+    },
+    {
+      "rank": 276,
+      "name": "미리내문화사",
+      "category": "어학",
+      "revenue": 118.9,
+      "titles": 330,
+      "rev_per_title": 36.03
+    },
+    {
+      "rank": 277,
+      "name": "너울문화사",
+      "category": "단행본",
+      "revenue": 118.6,
+      "titles": 390,
+      "rev_per_title": 30.41
+    },
+    {
+      "rank": 278,
+      "name": "예솔문화사",
+      "category": "아동",
+      "revenue": 118.2,
+      "titles": 610,
+      "rev_per_title": 19.38
+    },
+    {
+      "rank": 279,
+      "name": "보름문화사",
+      "category": "IT/실용",
+      "revenue": 117.9,
+      "titles": 330,
+      "rev_per_title": 35.73
+    },
+    {
+      "rank": 280,
+      "name": "다솜문화사",
+      "category": "학습",
+      "revenue": 117.6,
+      "titles": 370,
+      "rev_per_title": 31.78
+    },
+    {
+      "rank": 281,
+      "name": "슬기문화사",
+      "category": "교육",
+      "revenue": 117.3,
+      "titles": 490,
+      "rev_per_title": 23.94
+    },
+    {
+      "rank": 282,
+      "name": "누리문화사",
+      "category": "어학",
+      "revenue": 117.0,
+      "titles": 460,
+      "rev_per_title": 25.43
+    },
+    {
+      "rank": 283,
+      "name": "든해문화사",
+      "category": "단행본",
+      "revenue": 116.7,
+      "titles": 380,
+      "rev_per_title": 30.71
+    },
+    {
+      "rank": 284,
+      "name": "아라문화사",
+      "category": "아동",
+      "revenue": 116.4,
+      "titles": 430,
+      "rev_per_title": 27.07
+    },
+    {
+      "rank": 285,
+      "name": "청람문화사",
+      "category": "IT/실용",
+      "revenue": 116.2,
+      "titles": 360,
+      "rev_per_title": 32.28
+    },
+    {
+      "rank": 286,
+      "name": "도담문화사",
+      "category": "학습",
+      "revenue": 115.9,
+      "titles": 500,
+      "rev_per_title": 23.18
+    },
+    {
+      "rank": 287,
+      "name": "여울문화사",
+      "category": "교육",
+      "revenue": 115.6,
+      "titles": 400,
+      "rev_per_title": 28.9
+    },
+    {
+      "rank": 288,
+      "name": "소담문화사",
+      "category": "어학",
+      "revenue": 115.3,
+      "titles": 350,
+      "rev_per_title": 32.94
+    },
+    {
+      "rank": 289,
+      "name": "한결문화사",
+      "category": "단행본",
+      "revenue": 115.0,
+      "titles": 470,
+      "rev_per_title": 24.47
+    },
+    {
+      "rank": 290,
+      "name": "빛솔문화사",
+      "category": "아동",
+      "revenue": 114.7,
+      "titles": 530,
+      "rev_per_title": 21.64
+    },
+    {
+      "rank": 291,
+      "name": "나래문화사",
+      "category": "IT/실용",
+      "revenue": 114.4,
+      "titles": 270,
+      "rev_per_title": 42.37
+    },
+    {
+      "rank": 292,
+      "name": "초록문화사",
+      "category": "학습",
+      "revenue": 114.1,
+      "titles": 450,
+      "rev_per_title": 25.36
+    },
+    {
+      "rank": 293,
+      "name": "물결문화사",
+      "category": "교육",
+      "revenue": 113.9,
+      "titles": 550,
+      "rev_per_title": 20.71
+    },
+    {
+      "rank": 294,
+      "name": "바람문화사",
+      "category": "어학",
+      "revenue": 113.6,
+      "titles": 360,
+      "rev_per_title": 31.56
+    },
+    {
+      "rank": 295,
+      "name": "구름문화사",
+      "category": "단행본",
+      "revenue": 113.3,
+      "titles": 340,
+      "rev_per_title": 33.32
+    },
+    {
+      "rank": 296,
+      "name": "은하문화사",
+      "category": "아동",
+      "revenue": 113.0,
+      "titles": 550,
+      "rev_per_title": 20.55
+    },
+    {
+      "rank": 297,
+      "name": "새벽문화사",
+      "category": "IT/실용",
+      "revenue": 112.8,
+      "titles": 370,
+      "rev_per_title": 30.49
+    },
+    {
+      "rank": 298,
+      "name": "노을문화사",
+      "category": "학습",
+      "revenue": 112.5,
+      "titles": 380,
+      "rev_per_title": 29.61
+    },
+    {
+      "rank": 299,
+      "name": "단비문화사",
+      "category": "교육",
+      "revenue": 112.2,
+      "titles": 410,
+      "rev_per_title": 27.37
+    },
+    {
+      "rank": 300,
+      "name": "샘터문화사",
+      "category": "어학",
+      "revenue": 111.9,
+      "titles": 440,
+      "rev_per_title": 25.43
     }
   ]
 }
