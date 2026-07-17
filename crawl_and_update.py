@@ -163,6 +163,7 @@ _DASHBOARD_TEMPLATE = """<!DOCTYPE html>
     <div class="header">
         <h1>🏫 대치동 학원가 모니터링 대시보드</h1>
         <div class="subtitle">Firecrawl + Supabase 자동 크롤링 · 변경 감지 · 키워드 트래킹 | 갱신: __NOW__</div>
+        <div style="margin-top:10px;font-size:13px;">📚 <a href="publications.html" style="color:#7cc0ff;text-decoration:none;">2025 한국 출판생산 통계 — 발행 종수·부수 시각화 →</a></div>
     </div>
     <div class="container">
         <div class="stats-grid" id="statsGrid"></div>

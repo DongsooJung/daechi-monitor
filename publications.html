@@ -3,26 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>출판 상위 300개 — 매출·발행 종수 시각화</title>
+    <title>2025 한국 출판생산 통계 — 발행 종수·부수 시각화</title>
     <script src="vendor/chart.umd.min.js"></script>
     <style>
         :root {
             color-scheme: dark;
-            --surface-1: #1e293b;   /* 패널/차트 서피스 */
-            --plane:      #0f172a;   /* 페이지 배경 */
+            --surface-1: #1e293b;
+            --plane:      #0f172a;
             --border:     #334155;
-            --ink:        #e2e8f0;   /* 기본 텍스트 */
-            --ink-2:      #94a3b8;   /* 보조 텍스트 */
+            --ink:        #e2e8f0;
+            --ink-2:      #94a3b8;
             --grid:       #334155;
-            /* 시퀀셜 단일 색상(매출 크기) */
             --series-1:   #3987e5;
-            /* 카테고리(라벨과 함께만 사용) */
-            --cat-edu:    #3987e5;
-            --cat-lang:   #4ade80;
-            --cat-book:   #d55181;
-            --cat-kids:   #c98500;
-            --cat-it:     #199e70;
-            --cat-study:  #d95926;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: var(--plane); color: var(--ink); min-height: 100vh; }
@@ -33,93 +25,99 @@
         .header .subtitle { color: var(--ink-2); margin-top: 4px; font-size: 14px; }
         .nav { margin-top: 10px; font-size: 13px; }
         .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
-        .banner { display: flex; gap: 10px; align-items: center; background: #422006; border: 1px solid #854d0e; color: #fde68a; padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 24px; }
-        .banner b { color: #fef3c7; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .banner { display: flex; gap: 10px; align-items: flex-start; background: #0e2a1e; border: 1px solid #14532d; color: #bbf7d0; padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 24px; line-height: 1.6; }
+        .banner b { color: #dcfce7; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 12px; }
         .stat-card { background: var(--surface-1); border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
         .stat-card .label { color: var(--ink-2); font-size: 13px; }
-        .stat-card .value { font-size: 30px; font-weight: 700; margin-top: 8px; color: #60a5fa; }
+        .stat-card .value { font-size: 28px; font-weight: 700; margin-top: 8px; color: #60a5fa; }
         .stat-card .unit { font-size: 14px; color: var(--ink-2); font-weight: 500; margin-left: 4px; }
+        .stat-card .delta { font-size: 12px; margin-top: 6px; }
+        .delta.up { color: #4ade80; } .delta.down { color: #f87171; }
+        .substat { color: var(--ink-2); font-size: 12.5px; margin-bottom: 24px; }
+        .substat b { color: #cbd5e1; font-weight: 600; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
         .panel { background: var(--surface-1); border-radius: 12px; padding: 24px; border: 1px solid var(--border); }
         .panel h2 { font-size: 16px; margin-bottom: 6px; color: #f1f5f9; }
         .panel .hint { font-size: 12px; color: var(--ink-2); margin-bottom: 14px; }
-        .chart-container { position: relative; height: 420px; }
-        .chart-container.short { height: 300px; }
-        .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; font-size: 12px; color: var(--ink-2); }
-        .legend span { display: inline-flex; align-items: center; gap: 6px; }
-        .legend i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
-        /* 테이블 */
+        .chart-container { position: relative; height: 300px; }
+        .chart-container.tall { height: 440px; }
         .table-tools { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-        .table-tools input, .table-tools select { background: var(--plane); border: 1px solid var(--border); color: var(--ink); padding: 8px 12px; border-radius: 8px; font-size: 13px; }
-        .table-tools input { min-width: 200px; }
-        .table-wrap { max-height: 560px; overflow: auto; border-radius: 8px; }
+        .table-tools input { background: var(--plane); border: 1px solid var(--border); color: var(--ink); padding: 8px 12px; border-radius: 8px; font-size: 13px; min-width: 200px; }
+        .table-wrap { overflow-x: auto; border-radius: 8px; }
         table { width: 100%; border-collapse: collapse; font-size: 13px; }
         thead th { position: sticky; top: 0; background: #17233a; text-align: left; color: var(--ink-2); padding: 10px 12px; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
         thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
         thead th:hover { color: #cbd5e1; }
         thead th .arr { opacity: 0.5; font-size: 10px; }
-        td { padding: 9px 12px; border-bottom: 1px solid #16233a; }
+        td { padding: 9px 12px; border-bottom: 1px solid #16233a; white-space: nowrap; }
         tbody tr:hover { background: #26344b; }
-        .rank { color: var(--ink-2); font-variant-numeric: tabular-nums; }
-        .cat { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; color: #0b1220; }
-        .foot { color: var(--ink-2); font-size: 12px; margin: 8px 0 40px; text-align: center; }
+        tfoot td { padding: 10px 12px; border-top: 2px solid var(--border); font-weight: 700; color: #cbd5e1; font-variant-numeric: tabular-nums; }
+        .foot { color: var(--ink-2); font-size: 12px; margin: 8px 0 40px; text-align: center; line-height: 1.7; }
         @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>📚 출판 상위 300개 — 매출 · 발행 종수</h1>
-        <div class="subtitle">국내 주요 출판·교육 기업 상위 300개사 매출(억원)과 누적 발행 종수(권) 시각화</div>
+        <h1>📚 2025 한국 출판생산 통계</h1>
+        <div class="subtitle">대한출판문화협회 납본 기준 · 연도별·분야별 신간 발행 종수 · 부수 · 평균 정가 시각화</div>
         <div class="nav">← <a href="index.html">대치동 학원가 모니터링 대시보드</a></div>
     </div>
 
     <div class="container">
         <div class="banner">
-            ⚠️ <div><b>예시(샘플) 데이터입니다.</b> 순위·매출·발행 종수 값은 시각화 데모용으로 생성된 것이며 실제 각 사의 재무·발행 실적이 아닙니다. 실데이터로 교체하려면 <code>publications.json</code>을 갱신하세요.</div>
+            📗 <div><b>실데이터.</b> 출처: <b>대한출판문화협회 「2025년 기준 한국 출판생산 통계」(2026.05)</b>. 납본된 도서를 근거로 집계한 통계로 출판산업 전체 수치와는 차이가 있을 수 있습니다(정부간행물·학원교재 등 납본 대상 제외).</div>
         </div>
 
         <div class="stats-grid" id="statsGrid"></div>
+        <div class="substat" id="subStat"></div>
 
-        <div class="panel" style="margin-bottom:24px;">
-            <h2>🏆 매출 상위 20개 출판사</h2>
-            <div class="hint">막대 길이 = 연매출(억원). 상위권은 대형 교육·학습지 기업이 주도합니다.</div>
-            <div class="chart-container"><canvas id="revBar"></canvas></div>
+        <div class="grid-2">
+            <div class="panel">
+                <h2>📈 연도별 신간 발행 종수 추이</h2>
+                <div class="hint">2001~2025년, 단위: 종. (마우스를 올리면 연도별 값)</div>
+                <div class="chart-container"><canvas id="titleTrend"></canvas></div>
+            </div>
+            <div class="panel">
+                <h2>💰 연도별 신간 평균 정가 추이</h2>
+                <div class="hint">2001~2025년, 단위: 원.</div>
+                <div class="chart-container"><canvas id="priceTrend"></canvas></div>
+            </div>
         </div>
 
         <div class="grid-2">
             <div class="panel">
-                <h2>🔗 매출 vs 발행 종수</h2>
-                <div class="hint">각 점 = 출판사 1곳. 오른쪽·위로 갈수록 매출·발행 종수가 큽니다. (마우스를 올리면 상세)</div>
-                <div class="chart-container"><canvas id="scatter"></canvas></div>
+                <h2>🗂 2025 분야별 발행 종수</h2>
+                <div class="hint">단위: 종. 막대 길이 = 발행 종수. (문학·사회과학 분야가 주도)</div>
+                <div class="chart-container tall"><canvas id="catTitles"></canvas></div>
             </div>
             <div class="panel">
-                <h2>🗂 카테고리별 매출 합계</h2>
-                <div class="hint">전체 출판사를 분야별로 묶은 총매출(억원).</div>
-                <div class="chart-container short"><canvas id="catBar"></canvas></div>
-                <div class="legend" id="catLegend"></div>
+                <h2>📦 2025 분야별 발행 부수</h2>
+                <div class="hint">단위: 만 부. 학습참고·아동 분야가 부수 상위.</div>
+                <div class="chart-container tall"><canvas id="catCopies"></canvas></div>
             </div>
         </div>
 
         <div class="panel">
-            <h2>📋 전체 순위표 (<span id="tableTitleCount">…</span>개사)</h2>
-            <div class="hint">헤더를 클릭하면 정렬됩니다. 이름·분야로 검색할 수 있습니다.</div>
+            <h2>📋 2025 분야별 상세 (13개 분야)</h2>
+            <div class="hint">헤더를 클릭하면 정렬됩니다. 분야명으로 검색할 수 있습니다.</div>
             <div class="table-tools">
-                <input type="text" id="search" placeholder="🔎 출판사·분야 검색…">
-                <select id="catFilter"><option value="">전체 분야</option></select>
+                <input type="text" id="search" placeholder="🔎 분야 검색…">
                 <span id="rowCount" style="color:var(--ink-2);font-size:12px;"></span>
             </div>
             <div class="table-wrap">
                 <table>
                     <thead><tr>
-                        <th data-key="rank" class="num">순위 <span class="arr">▲</span></th>
-                        <th data-key="name">출판사 <span class="arr"></span></th>
-                        <th data-key="category">분야 <span class="arr"></span></th>
-                        <th data-key="revenue" class="num">매출(억) <span class="arr"></span></th>
-                        <th data-key="titles" class="num">발행 종수(권) <span class="arr"></span></th>
-                        <th data-key="rev_per_title" class="num">권당 매출(백만) <span class="arr"></span></th>
+                        <th data-key="name">분야 <span class="arr"></span></th>
+                        <th data-key="titles" class="num">발행 종수(종) <span class="arr">▼</span></th>
+                        <th data-key="share" class="num">점유율(%) <span class="arr"></span></th>
+                        <th data-key="copies_manbu" class="num">발행 부수(만부) <span class="arr"></span></th>
+                        <th data-key="avg_price" class="num">평균 정가(원) <span class="arr"></span></th>
+                        <th data-key="avg_pages" class="num">평균 면수(면) <span class="arr"></span></th>
+                        <th data-key="translated" class="num">번역도서(종) <span class="arr"></span></th>
                     </tr></thead>
                     <tbody id="tableBody"></tbody>
+                    <tfoot id="tableFoot"></tfoot>
                 </table>
             </div>
         </div>
@@ -128,14 +126,9 @@
     </div>
 
     <script>
-        const CAT_COLORS = {
-            '교육': '#3987e5', '어학': '#4ade80', '단행본': '#d55181',
-            '아동': '#c98500', 'IT/실용': '#199e70', '학습': '#d95926'
-        };
-        const INK = '#e2e8f0', INK2 = '#94a3b8', GRID = '#334155';
+        const INK = '#e2e8f0', INK2 = '#94a3b8', GRID = '#334155', BLUE = '#3987e5';
         const nf = new Intl.NumberFormat('ko-KR');
         const nf1 = new Intl.NumberFormat('ko-KR', { maximumFractionDigits: 1 });
-
         const HAS_CHART = typeof Chart !== 'undefined';
         if (HAS_CHART) {
             Chart.defaults.color = INK2;
@@ -150,138 +143,125 @@
                     `<div class="stat-card" style="grid-column:1/-1;color:#f87171">데이터를 불러오지 못했습니다: ${err}</div>`;
             });
 
+        function pct(cur, prev) {
+            const d = (cur - prev) / prev * 100;
+            const cls = d >= 0 ? 'up' : 'down';
+            const arr = d >= 0 ? '▲' : '▼';
+            return `<div class="delta ${cls}">전년比 ${arr} ${nf1.format(Math.abs(d))}%</div>`;
+        }
+
         function render(data) {
-            const pubs = data.publications;
-            const totalRev = pubs.reduce((s, p) => s + p.revenue, 0);
-            const totalTitles = pubs.reduce((s, p) => s + p.titles, 0);
-            const avgPerTitle = totalRev * 100 / totalTitles;
-            document.getElementById('tableTitleCount').textContent = nf.format(pubs.length);
+            const h = data.headline_2025;
+            const annual = data.annual;
+            const prev = annual[annual.length - 2];  // 2024
 
             // ── 요약 카드 ──
             document.getElementById('statsGrid').innerHTML = `
-                <div class="stat-card"><div class="label">출판사 수</div><div class="value">${pubs.length}<span class="unit">개사</span></div></div>
-                <div class="stat-card"><div class="label">총 매출 합계</div><div class="value">${nf.format(Math.round(totalRev))}<span class="unit">억원</span></div></div>
-                <div class="stat-card"><div class="label">총 발행 종수</div><div class="value">${nf.format(totalTitles)}<span class="unit">권</span></div></div>
-                <div class="stat-card"><div class="label">평균 권당 매출</div><div class="value">${nf1.format(avgPerTitle)}<span class="unit">백만원</span></div></div>`;
+                <div class="stat-card"><div class="label">발행 종수</div><div class="value">${nf.format(h.titles)}<span class="unit">종</span></div>${pct(h.titles, prev.titles)}</div>
+                <div class="stat-card"><div class="label">발행 부수</div><div class="value">${nf.format(h.copies)}<span class="unit">부</span></div>${pct(h.copies, prev.copies)}</div>
+                <div class="stat-card"><div class="label">평균 정가</div><div class="value">${nf.format(h.avg_price)}<span class="unit">원</span></div>${pct(h.avg_price, prev.avg_price)}</div>
+                <div class="stat-card"><div class="label">번역도서 종수</div><div class="value">${nf.format(h.translated_titles)}<span class="unit">종</span></div>${pct(h.translated_titles, prev.translated)}</div>`;
+            document.getElementById('subStat').innerHTML =
+                `평균 발행 부수 <b>${nf.format(h.avg_copies)}부</b> · 평균 면수 <b>${h.avg_pages}면</b> · ` +
+                `납본 출판사 <b>${nf.format(h.publishers_deposited)}개사</b> · 등록 출판사 <b>${nf.format(h.publishers_registered)}개사</b>`;
 
-            // ── 차트 1: 매출 상위 20 (수평 막대, 단일 색상) ──
-            const top20 = pubs.slice(0, 20);
-            HAS_CHART && new Chart(document.getElementById('revBar'), {
-                type: 'bar',
-                data: {
-                    labels: top20.map(p => p.name),
-                    datasets: [{
-                        label: '매출(억원)',
-                        data: top20.map(p => p.revenue),
-                        backgroundColor: '#3987e5',
-                        borderRadius: 4,
-                        borderSkipped: false,
-                        maxBarThickness: 22
-                    }]
+            // ── 라인: 연도별 발행 종수 ──
+            const lineOpts = (unitLabel, fmt) => ({
+                responsive: true, maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: c => ` ${fmt(c.parsed.y)} ${unitLabel}` } }
                 },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: { callbacks: { label: c => ` 매출 ${nf1.format(c.parsed.x)}억원 · ${nf.format(top20[c.dataIndex].titles)}권` } }
-                    },
-                    scales: {
-                        x: { ticks: { color: INK2 }, grid: { color: GRID }, title: { display: true, text: '매출(억원)', color: INK2 } },
-                        y: { ticks: { color: INK, font: { size: 11 } }, grid: { display: false } }
-                    }
+                scales: {
+                    x: { ticks: { color: INK2, maxRotation: 0, autoSkip: true, maxTicksLimit: 10 }, grid: { display: false } },
+                    y: { ticks: { color: INK2, callback: v => fmt(v) }, grid: { color: GRID } }
                 }
             });
-
-            // ── 차트 2: 매출 vs 발행 종수 (산점도, 단일 색상; 식별은 툴팁) ──
-            HAS_CHART && new Chart(document.getElementById('scatter'), {
-                type: 'scatter',
+            const line = (id, series, unitLabel, fmt) => HAS_CHART && new Chart(document.getElementById(id), {
+                type: 'line',
                 data: {
+                    labels: annual.map(a => a.year),
                     datasets: [{
-                        label: '출판사',
-                        data: pubs.map(p => ({ x: p.titles, y: p.revenue, name: p.name, cat: p.category })),
-                        backgroundColor: 'rgba(57,135,229,0.7)',
-                        borderColor: '#1e293b',
-                        borderWidth: 1,
-                        pointRadius: 6, pointHoverRadius: 9
+                        data: annual.map(a => series(a)),
+                        borderColor: BLUE, backgroundColor: 'rgba(57,135,229,0.12)',
+                        borderWidth: 2, fill: true, tension: 0.25,
+                        pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: BLUE
                     }]
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: { callbacks: { label: c => {
-                            const d = c.raw;
-                            return ` ${d.name} (${d.cat}) — 매출 ${nf1.format(d.y)}억 · ${nf.format(d.x)}권`;
-                        } } }
+                options: lineOpts(unitLabel, fmt)
+            });
+            line('titleTrend', a => a.titles, '종', v => nf.format(v));
+            line('priceTrend', a => a.avg_price, '원', v => nf.format(v));
+
+            // ── 분야별 수평 막대 (정렬) ──
+            const hbar = (id, key, unitLabel) => {
+                const rows = data.categories_2025.slice().sort((a, b) => b[key] - a[key]);
+                return HAS_CHART && new Chart(document.getElementById(id), {
+                    type: 'bar',
+                    data: {
+                        labels: rows.map(r => r.name),
+                        datasets: [{
+                            data: rows.map(r => r[key]),
+                            backgroundColor: BLUE, borderRadius: 4, borderSkipped: false, maxBarThickness: 24
+                        }]
                     },
-                    scales: {
-                        x: { ticks: { color: INK2 }, grid: { color: GRID }, title: { display: true, text: '발행 종수(권)', color: INK2 } },
-                        y: { ticks: { color: INK2 }, grid: { color: GRID }, title: { display: true, text: '매출(억원)', color: INK2 } }
+                    options: {
+                        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: c => ` ${nf.format(c.parsed.x)} ${unitLabel}` } }
+                        },
+                        scales: {
+                            x: { ticks: { color: INK2, callback: v => nf.format(v) }, grid: { color: GRID } },
+                            y: { ticks: { color: INK, font: { size: 12 } }, grid: { display: false } }
+                        }
                     }
-                }
-            });
+                });
+            };
+            hbar('catTitles', 'titles', '종');
+            hbar('catCopies', 'copies_manbu', '만 부');
 
-            // ── 차트 3: 카테고리별 매출 합계 (막대, 분야별 색상 + 라벨) ──
-            const byCat = {};
-            pubs.forEach(p => { byCat[p.category] = (byCat[p.category] || 0) + p.revenue; });
-            const cats = Object.keys(byCat).sort((a, b) => byCat[b] - byCat[a]);
-            HAS_CHART && new Chart(document.getElementById('catBar'), {
-                type: 'bar',
-                data: {
-                    labels: cats,
-                    datasets: [{
-                        label: '매출 합계(억원)',
-                        data: cats.map(c => Math.round(byCat[c])),
-                        backgroundColor: cats.map(c => CAT_COLORS[c] || '#64748b'),
-                        borderRadius: 4, borderSkipped: false, maxBarThickness: 46
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: { callbacks: { label: c => ` ${nf.format(c.parsed.y)}억원` } }
-                    },
-                    scales: {
-                        x: { ticks: { color: INK, font: { size: 12 } }, grid: { display: false } },
-                        y: { ticks: { color: INK2 }, grid: { color: GRID }, title: { display: true, text: '매출 합계(억원)', color: INK2 } }
-                    }
-                }
-            });
-            document.getElementById('catLegend').innerHTML = cats.map(c =>
-                `<span><i style="background:${CAT_COLORS[c] || '#64748b'}"></i>${c}</span>`).join('');
-
-            // ── 테이블 (정렬·검색·필터) ──
-            const catFilter = document.getElementById('catFilter');
-            [...new Set(pubs.map(p => p.category))].sort().forEach(c => {
-                const o = document.createElement('option'); o.value = c; o.textContent = c; catFilter.appendChild(o);
-            });
-
-            let sortKey = 'rank', sortDir = 1;
+            // ── 분야별 상세표 ──
+            const cats = data.categories_2025;
             const search = document.getElementById('search');
+            let sortKey = 'titles', sortDir = -1;
+
+            const totals = {
+                titles: cats.reduce((s, c) => s + c.titles, 0),
+                copies_manbu: cats.reduce((s, c) => s + c.copies_manbu, 0),
+                translated: cats.reduce((s, c) => s + c.translated, 0),
+            };
+            document.getElementById('tableFoot').innerHTML = `
+                <tr>
+                    <td>합계 / 평균</td>
+                    <td class="num">${nf.format(totals.titles)}</td>
+                    <td class="num">100.0</td>
+                    <td class="num">${nf.format(totals.copies_manbu)}</td>
+                    <td class="num">${nf.format(h.avg_price)}</td>
+                    <td class="num">${h.avg_pages}</td>
+                    <td class="num">${nf.format(totals.translated)}</td>
+                </tr>`;
 
             function draw() {
                 const q = search.value.trim().toLowerCase();
-                const cf = catFilter.value;
-                let rows = pubs.filter(p =>
-                    (!cf || p.category === cf) &&
-                    (!q || p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)));
+                let rows = cats.filter(c => !q || c.name.toLowerCase().includes(q));
                 rows = rows.slice().sort((a, b) => {
                     let x = a[sortKey], y = b[sortKey];
                     if (typeof x === 'string') return x.localeCompare(y, 'ko') * sortDir;
                     return (x - y) * sortDir;
                 });
-                document.getElementById('tableBody').innerHTML = rows.map(p => `
+                document.getElementById('tableBody').innerHTML = rows.map(c => `
                     <tr>
-                        <td class="num rank">${p.rank}</td>
-                        <td>${p.name}</td>
-                        <td><span class="cat" style="background:${CAT_COLORS[p.category] || '#64748b'}">${p.category}</span></td>
-                        <td class="num">${nf1.format(p.revenue)}</td>
-                        <td class="num">${nf.format(p.titles)}</td>
-                        <td class="num">${nf1.format(p.rev_per_title)}</td>
+                        <td>${c.name}</td>
+                        <td class="num">${nf.format(c.titles)}</td>
+                        <td class="num">${nf1.format(c.share)}</td>
+                        <td class="num">${nf.format(c.copies_manbu)}</td>
+                        <td class="num">${nf.format(c.avg_price)}</td>
+                        <td class="num">${nf.format(c.avg_pages)}</td>
+                        <td class="num">${nf.format(c.translated)}</td>
                     </tr>`).join('');
-                document.getElementById('rowCount').textContent = `${rows.length}개 표시`;
+                document.getElementById('rowCount').textContent = `${rows.length}개 분야`;
                 document.querySelectorAll('thead th').forEach(th => {
                     const arr = th.querySelector('.arr');
                     arr.textContent = th.dataset.key === sortKey ? (sortDir === 1 ? '▲' : '▼') : '';
@@ -290,18 +270,18 @@
             document.querySelectorAll('thead th').forEach(th => {
                 th.addEventListener('click', () => {
                     const k = th.dataset.key;
-                    if (k === sortKey) sortDir *= -1; else { sortKey = k; sortDir = (k === 'name' || k === 'category') ? 1 : (k === 'rank' ? 1 : -1); }
+                    if (k === sortKey) sortDir *= -1;
+                    else { sortKey = k; sortDir = (k === 'name') ? 1 : -1; }
                     draw();
                 });
             });
             search.addEventListener('input', draw);
-            catFilter.addEventListener('change', draw);
             draw();
 
             // ── 푸터 ──
-            const gen = (data.generated_at || '').substring(0, 19).replace('T', ' ');
-            document.getElementById('foot').textContent =
-                `데이터 생성: ${gen} UTC · 단위: 매출 억원 / 발행 종수 권 / 권당 매출 백만원 · ${data.is_sample ? '샘플 데이터' : '실데이터'}`;
+            const gen = (data.generated_at || '').substring(0, 10);
+            document.getElementById('foot').innerHTML =
+                `출처: ${data.source} · 생성: ${gen}<br>${data.source_note}`;
         }
     </script>
 </body>
