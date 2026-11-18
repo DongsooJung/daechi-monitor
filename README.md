@@ -105,7 +105,7 @@ python -m http.server 8000
 **정동수 (Dongsoo Jung)** — Stargate Corporation CEO
 - 대치동 KOI(수학정보올림피아드) 전문 강사
 - SNU 스마트도시공학 박사 수료 · 공간계량/헤도닉 연구자
-- [GitHub](https://github.com/DongsooJung) · [Website](https://stargate11.com)
+- [GitHub](https://github.com/DongsooJung) · [Website](https://stargateedu.co.kr)
 
 ## 📄 License
 
