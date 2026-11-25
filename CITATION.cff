@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "daechi-monitor: Automated monitoring dashboard for the Daechi-dong academy district"
+abstract: >-
+  Automated scanning and tracking of changes in the Daechi-dong private
+  education district, with scheduled dashboard refreshes and change logs.
+type: software
+version: 0.1.0
+date-released: "2026-11-25"
+license: MIT
+repository-code: "https://github.com/DongsooJung/daechi-monitor"
+keywords:
+  - monitoring
+  - dashboard
+  - education
+  - automation
+  - Korea
+  - reproducibility
+authors:
+  - family-names: Jung
+    given-names: Dongsoo
+    affiliation: "Seoul National University, Department of Civil and Environmental Engineering"
